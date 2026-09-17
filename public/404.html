@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeqou — Software built under one ecosystem.</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // GitHub Pages SPA fallback. The site uses hash routing (e.g. #/apps/harness),
+      // so a deep link that lands here is rewritten to its hash equivalent.
+      (function () {
+        var path = window.location.pathname;
+        var search = window.location.search || '';
+        // Strip a possible repository base segment, keep the rest as the route.
+        var segments = path.split('/').filter(Boolean);
+        var route = segments.length > 1 ? '/' + segments.slice(1).join('/') : '/';
+        window.location.replace(
+          window.location.origin +
+            window.location.pathname.split('/').slice(0, 2).join('/') +
+            '/#' +
+            route +
+            search,
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to Zeqou…</p>
+  </body>
+</html>
