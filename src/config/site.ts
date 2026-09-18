@@ -6,23 +6,22 @@
 export const site = {
   name: 'Zeqou',
   tagline: 'Software, built as an ecosystem.',
+  heroLabel: 'One service. Many apps.',
   heroTitle: 'Software, built as an ecosystem.',
   heroSubtitle:
-    'Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together.',
+    'Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together. Free to download for Windows.',
   description:
     'Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together.',
   copyrightYear: 2026,
 
-  // TODO: replace with the production domain after the first GitHub Pages deploy.
-  url: '',
+  url: 'https://mishaadevv.github.io/zeqou/',
 
   // Central GitHub presence of the ecosystem.
-  // TODO: replace with the real organisation / profile URL.
-  githubUrl: 'https://github.com/zeqou',
+  githubUrl: 'https://github.com/Mishaadevv',
 
   nav: [
     { label: 'Apps', to: '/apps' },
     { label: 'Updates', to: '/updates' },
-    { label: 'GitHub', href: 'https://github.com/zeqou' },
+    { label: 'GitHub', href: 'https://github.com/Mishaadevv' },
   ],
 } as const;

@@ -33,18 +33,19 @@ export function Home() {
     <>
       <SEO
         title="Zeqou — Software, built as an ecosystem."
-        description="Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together."
+        description={site.description}
       />
 
       {/* Hero */}
       <section className="hero" aria-labelledby="hero-title">
         <div className="container hero-grid">
           <div>
+            <p className="label">{site.heroLabel}</p>
             <h1 id="hero-title">{site.heroTitle}</h1>
             <p className="hero-sub">{site.heroSubtitle}</p>
             <div className="hero-cta">
               <Link to="/apps" className="btn btn-primary">
-                Explore apps
+                Download for Windows
               </Link>
               <a
                 href={site.githubUrl}
