@@ -9,7 +9,7 @@ export const site = {
   heroLabel: 'One service. Many apps.',
   heroTitle: 'Software, built as an ecosystem.',
   heroSubtitle:
-    'Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together. Free to download for Windows.',
+    'Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together. Free for Windows, macOS and Linux.',
   description:
     'Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together.',
   copyrightYear: 2026,

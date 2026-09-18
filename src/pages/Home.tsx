@@ -45,7 +45,7 @@ export function Home() {
             <p className="hero-sub">{site.heroSubtitle}</p>
             <div className="hero-cta">
               <Link to="/apps" className="btn btn-primary">
-                Download for Windows
+                Download free
               </Link>
               <a
                 href={site.githubUrl}
