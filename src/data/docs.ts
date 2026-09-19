@@ -1,5 +1,5 @@
 /**
- * Documentation content for the whole Zeqou ecosystem + GitHub presence.
+ * Documentation content for the Zeqou ecosystem only.
  *
  * Single source of truth for /docs routes. Edit text here —
  * Docs.tsx (index) and DocArticle.tsx (article) render it automatically.
@@ -49,30 +49,27 @@ export const docs: DocPage[] = [
         ],
       },
       {
-        heading: 'All GitHub repositories (Mishaadevv — 6 repos)',
+        heading: 'All Zeqou repositories (Mishaadevv)',
         paragraphs: [
-          'GitHub user page: https://github.com/Mishaadevv. Every repo below is public.',
+          'Zeqou lives in 4 repos. Two more repos on the same GitHub (SlimeLauncher, MineDecompiler) are separate Minecraft tools — not part of Zeqou and not covered here.',
         ],
         list: [
           'zeqou — official ecosystem website (TypeScript, React 19 + Vite). This site + its documentation.',
           'harness — Zeqou Harness, premium desktop workspace for AI models and agents (JavaScript, Electron).',
           'xchat — ZeqouXChat, desktop AI chat, Tauri 2 + React 19 (TypeScript).',
           'xtraining — ZeqouXTraining, desktop app for training and fine-tuning AI models (TypeScript + Python).',
-          'SlimeLauncher — cozy Minecraft launcher, fast and slime-themed (TypeScript, Electron). 1 star.',
-          'MineDecompiler — lightweight local-first Minecraft decompiler, standalone tool (Java, MIT). 1 star.',
         ],
       },
       {
         heading: 'Local projects in “Zeqou Ecosystem” folder',
         paragraphs: [
-          'On this machine the folder “Zeqou Ecosystem” contains 4 checkouts that mirror the first 4 GitHub repos:',
+          'On this machine the folder “Zeqou Ecosystem” contains 4 checkouts that mirror the Zeqou repos:',
         ],
         list: [
           'Zeqou/ — website (npm run dev, npm run build). Version 0.0.0.',
           'Zeqou Harness/ — Electron app, v1.2.0, appId ai.zeqou.harness.',
           'ZeqouXchat/ — Tauri 2 app, v0.2.0, plus AIens/ Python experiments and dataset_ru.json.',
           'ZeqouXTraining/ — Electron + Python app, v0.3.0, appId ai.zeqou.xtraining.',
-          'SlimeLauncher and MineDecompiler exist only on GitHub — no local checkout was found.',
         ],
       },
       {
@@ -312,149 +309,6 @@ export const docs: DocPage[] = [
           'App icons: public/assets/apps/{harness,xchat,xtraining}/icon.png.',
           'Favicon / touch / OG: public/favicon.png, apple-touch-icon.png, og.png.',
           'Harness promo: public/assets/videos/harness.mp4.',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'slimelauncher',
-    label: 'SlimeLauncher',
-    title: 'SlimeLauncher docs',
-    description:
-      'Cozy Minecraft launcher — any version c0.0.11 → 26.x, auto Java, 1-click mods, skins like TLauncher, LAN + Network play.',
-    githubUrl: 'https://github.com/Mishaadevv/SlimeLauncher',
-    version: '1.18.4',
-    stack: ['Electron 32', 'TypeScript', 'Node 20+', 'Modrinth', 'CurseForge', 'ely.by'],
-    blocks: [
-      {
-        heading: 'What it is',
-        paragraphs: [
-          'SlimeLauncher (16 commits, 1 star) — “like TLauncher but better”. Launch any Minecraft version with mods in one click. No Java setup, no manual tuning. Open-source code for the Slime Launcher.',
-        ],
-      },
-      {
-        heading: 'Why it',
-        paragraphs: ['From README:'],
-        list: [
-          'Zero-setup Java: correct runtime (Java 8 → 25) auto-downloads per version, incl. Forge/NeoForge.',
-          'Auto-tuned RAM, self-healing downloads.',
-          'Offline + Microsoft accounts (up to 8), instant switching. CaSe matters: Sigmultra452 ≠ sigmultra452.',
-          'Any version: vanilla, Fabric, Forge, NeoForge, Quilt, snapshots, betas, alphas.',
-          'Mods / Maps / Modpacks: 1-click from Modrinth & CurseForge, Update-all.',
-          'Skins & capes: offline, HD, capes, auto-pull from ely.by.',
-          'Friends on LAN: In-menu / LAN-world status + 1-click join.',
-          'Network: internet play without port-forward / Hamachi (built-in VPN).',
-          'Own server: Paper/Vanilla in 1 click, UPnP, live console.',
-          'Safety: world auto-backups before launch, console + crash reports.',
-        ],
-      },
-      {
-        heading: 'Quick start',
-        paragraphs: ['Exact flow from README:'],
-        list: [
-          '1. Download SlimeLauncher Setup 1.18.4.exe from Releases (or portable exe).',
-          '2. Accounts → Add offline (exact CaSe!) or Link Microsoft account.',
-          '3. Instances → Create Instance → version (e.g. 1.21.1) + loader (Fabric for mods) → Play.',
-          '4. Mods → pick instance → search sodium, jei → Install (loader instances only).',
-        ],
-      },
-      {
-        heading: 'Skins & capes',
-        paragraphs: [
-          'Between SlimeLauncher users: Skins → upload skin (PNG 64×64…1024×1024, slim/classic) + cape (64×32…1024×512). Works on LAN / Open-to-LAN / Network.',
-          'Any cracked server (TLauncher-style): register at ely.by with same nickname (CaSe!) → upload there → launcher pulls automatically.',
-          'Own community: deploy shared skin directory (server/ → Render/Fly.io, see SKIN_CATALOG_GUIDE.md) → put URL in Settings → Advanced.',
-          'Limit: on someone else’s public server strangers’ skins can’t be resolved client-side — protocol limit, not a bug.',
-        ],
-      },
-      {
-        heading: 'Build from source',
-        paragraphs: ['Requires Node.js 20+, Windows 10/11 64-bit.'],
-        code: {
-          lang: 'bash',
-          code: 'npm install\nnpm run build\nnpx electron-builder --win --publish never\n# → release/SlimeLauncher Setup 1.18.4.exe + portable',
-        },
-      },
-      {
-        heading: 'Troubleshooting',
-        paragraphs: ['Top cases from README:'],
-        list: [
-          '“Automatic Java download failed” — check api.adoptium.net, ~300 MB free, antivirus; or set Java in Settings → Minecraft.',
-          '“Everyone is Steve” — re-read Skins section; update both sides on LAN; use ely.by on public servers.',
-          '“Invalid session” — remove and re-link Microsoft account.',
-          'Friends invisible on LAN — same Wi-Fi (not guest), firewall allow, no VPN rerouting.',
-          'Else: Settings → Open logs folder → send main.log.',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'minedecompiler',
-    label: 'MineDecompiler',
-    title: 'MineDecompiler docs',
-    description:
-      'Standalone local-first decompiler for Minecraft Java Edition. Reads bytecode, writes readable structured Java project.',
-    githubUrl: 'https://github.com/Mishaadevv/MineDecompiler',
-    version: 'Gradle / Java 17+',
-    stack: ['Java 17+', 'Gradle', 'Swing', 'ASM', 'Vineflower', 'CFR', 'jpackage'],
-    blocks: [
-      {
-        heading: 'What it is',
-        paragraphs: [
-          'MineDecompiler / mcdecompiler (3 commits, 1 star, MIT) is NOT a mod — no Forge/Fabric/NeoForge, never loaded by the game. Input: local Minecraft .jar. Output: decompiled sources + resources + mappings + metadata + reports into a folder you choose.',
-          'Clean-room tool: repo contains no Minecraft binaries, assets, or obfuscated game code. Network only for optional mappings download; --offline disables it.',
-        ],
-      },
-      {
-        heading: 'Pipeline',
-        paragraphs: ['GUI (Swing) / CLI share one core (app.pipeline.DecompilationPipeline):'],
-        list: [
-          'JAR Reader (streaming, read-only) → VersionDetector → VersionProfile (per-era, no big if/else).',
-          'BytecodeAnalyzer (ASM) → ClassGraph (inheritance / refs).',
-          'DecompilerRegistry: Vineflower (primary) | CFR-compat | javap fallback.',
-          'SourceProcessor: remap → import cleanup → synthetic cleanup → format → validate.',
-          'ProjectGenerator → src/main/java + resources + mappings + metadata + reports + README.',
-          'One bad class never kills the run — fallback stub + continue.',
-        ],
-      },
-      {
-        heading: 'Supported versions',
-        paragraphs: ['Version detection: --version → manifest → version.json → known classes → obfuscation patterns → filename. Low confidence never blocks.'],
-        list: [
-          'Alpha a1.x — LegacyAlphaProfile — none / community Tiny.',
-          'Beta b1.7.3 — BetaProfile — community SRG/TSRG/Tiny.',
-          'Release 1.0–1.12 — LegacyReleaseProfile — community SRG/TSRG.',
-          'Modern 1.13+ — ModernReleaseProfile — Mojang client.txt/server.txt (you provide).',
-          'Future / unknown — FutureProfile — best-effort any format.',
-        ],
-      },
-      {
-        heading: 'Install / run',
-        paragraphs: ['Needs Java 17+ to run. No game install, no accounts.'],
-        code: {
-          lang: 'bash',
-          code: './gradlew build          # compile + tests -> build/libs/\n./gradlew fatJar         # standalone build/libs/mcdecompiler-all.jar\n./gradlew packageExe     # Windows program with bundled Java\n./gradlew run            # GUI\njava -jar build/libs/mcdecompiler-all.jar --help   # CLI',
-        },
-      },
-      {
-        heading: 'CLI usage',
-        paragraphs: ['GUI and CLI are twins:'],
-        code: {
-          lang: 'bash',
-          code: 'mcdecompiler input.jar --output <dir> [--version 1.1] [--decompiler auto|vineflower|cfr|javap] [--mappings <file|dir>] [--threads N] [--no-cache] [--offline]',
-        },
-      },
-      {
-        heading: 'Automatic mappings',
-        paragraphs: ['Order: explicit choice → <output>/mappings + ./mappings drop zones → local auto-find (siblings, library, ~/.minecraft-decompiler cache) → auto-download (Mojang piston-meta for modern, OrnitheMC Feather for ≤1.14.4, SHA-1 verified, cached). Find Mappings button does it in GUI. Without mappings you still get clean synthetic names.'],
-      },
-      {
-        heading: 'Extending',
-        paragraphs: ['Three extension points, all via interface + ServiceLoader, no core changes:'],
-        list: [
-          'VersionProfile: id(), label(), handles(GameVersion).',
-          'MappingProvider: loadMappings(GameVersion) → MappingSet (Mojang ProGuard, Tiny v1/v2, SRG/TSRG, .properties).',
-          'DecompilerEngine: decompile(jar, version, options, stats, listener) — per-class failures to stats, never throw the run.',
         ],
       },
     ],

@@ -1590,3 +1590,56 @@ a.eco-child:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Cursor spotlight — interactive pointer glow ── */
+.cursor-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+  background: radial-gradient(
+    520px circle at var(--cx, 50%) var(--cy, 30%),
+    var(--mark-glow),
+    transparent 65%
+  );
+}
+
+:root.cursor-active .cursor-spotlight {
+  opacity: 1;
+}
+
+main, .footer {
+  position: relative;
+  z-index: 2;
+}
+
+.navbar {
+  z-index: 50;
+}
+
+/* magnetic pull smoothing */
+a.btn, button.btn, .doc-card {
+  transition:
+    transform var(--duration) var(--ease),
+    translate 0.18s var(--ease),
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.hero-mark img {
+  transition: box-shadow 0.6s var(--ease), scale 0.4s var(--ease);
+}
+
+:root.cursor-active .hero-mark img {
+  scale: 1.015;
+  box-shadow: 0 0 120px -20px var(--mark-glow);
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-spotlight {
+    display: none;
+  }
+}

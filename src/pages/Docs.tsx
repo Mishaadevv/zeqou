@@ -9,15 +9,15 @@ export function Docs() {
     <div className="page">
       <SEO
         title="Docs — Zeqou"
-        description="Documentation for the whole Zeqou ecosystem: Harness, XChat, XTraining, website, SlimeLauncher, MineDecompiler."
+        description="Documentation for the Zeqou ecosystem: Harness, XChat, XTraining and the website itself."
       />
       <div className="container">
         <div className="page-hero">
           <p className="label">Documentation</p>
           <h1>Docs</h1>
           <p className="lead">
-            One place for everything Zeqou — ecosystem overview, all desktop apps,
-            the website itself, and the Minecraft tools on the same GitHub.
+            One place for everything Zeqou — ecosystem overview, all desktop apps
+            and the website itself.
           </p>
         </div>
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
+import { CursorSpotlight } from '../components/CursorSpotlight';
 import { ThemeProvider } from '../theme/ThemeContext';
 import { About } from '../pages/About';
 import { Apps } from '../pages/Apps';
@@ -36,6 +37,7 @@ export function App() {
           Skip to content
         </a>
         <ScrollToTop />
+        <CursorSpotlight />
         <Navbar />
         <main id="main">
           <Routes>
