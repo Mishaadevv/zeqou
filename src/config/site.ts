@@ -21,6 +21,7 @@ export const site = {
 
   nav: [
     { label: 'Apps', to: '/apps' },
+    { label: 'Docs', to: '/docs' },
     { label: 'Updates', to: '/updates' },
     { label: 'GitHub', href: 'https://github.com/Mishaadevv' },
   ],

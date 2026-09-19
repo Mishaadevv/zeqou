@@ -5,6 +5,8 @@ import { Navbar } from '../components/Navbar';
 import { ThemeProvider } from '../theme/ThemeContext';
 import { About } from '../pages/About';
 import { Apps } from '../pages/Apps';
+import { DocArticle } from '../pages/DocArticle';
+import { Docs } from '../pages/Docs';
 import { Harness } from '../pages/Harness';
 import { Home } from '../pages/Home';
 import { NotFound } from '../pages/NotFound';
@@ -42,6 +44,8 @@ export function App() {
             <Route path="/apps/harness" element={<Harness />} />
             <Route path="/apps/xchat" element={<XChat />} />
             <Route path="/apps/xtraining" element={<XTraining />} />
+            <Route path="/docs" element={<Docs />} />
+            <Route path="/docs/:slug" element={<DocArticle />} />
             <Route path="/updates" element={<Updates />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />

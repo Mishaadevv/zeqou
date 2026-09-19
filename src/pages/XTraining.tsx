@@ -57,9 +57,9 @@ export function XTraining() {
               <a href={product.githubUrl} className="btn btn-ghost" target="_blank" rel="noreferrer">
                 GitHub
               </a>
-              <a href={product.docsUrl} className="btn btn-ghost" target="_blank" rel="noreferrer">
+              <Link to="/docs/xtraining" className="btn btn-ghost">
                 Docs
-              </a>
+              </Link>
             </div>
           </div>
         </div>
