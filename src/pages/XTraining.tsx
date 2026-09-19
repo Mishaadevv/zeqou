@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { SEO } from '../components/SEO';
-import { Shot } from '../components/Shot';
+import { TrainingMock } from '../components/TrainingMock';
 import { getProduct } from '../config/products';
 
-export function XChat() {
-  const product = getProduct('xchat');
+export function XTraining() {
+  const product = getProduct('xtraining');
 
   if (!product) {
     return (
@@ -18,8 +18,8 @@ export function XChat() {
   return (
     <div className="page">
       <SEO
-        title="ZeqouXChat — Zeqou"
-        description="A desktop AI chat application built around modern AI providers and developer workflows."
+        title="ZeqouXTraining — Zeqou"
+        description="A desktop workspace for training and fine-tuning AI models on your own hardware."
       />
       <div className="container">
         <div className="app-hero">
@@ -27,7 +27,7 @@ export function XChat() {
             <nav className="breadcrumb" aria-label="Breadcrumb">
               <Link to="/apps">Apps</Link>
               <span aria-hidden="true">/</span>
-              <span aria-current="page">XChat</span>
+              <span aria-current="page">XTraining</span>
             </nav>
             <img
               src={product.icon}
@@ -66,22 +66,21 @@ export function XChat() {
 
         <Reveal>
           <div className="product-preview">
-            <div className="preview-frame natural">
-              <Shot
-                src="./assets/apps/xchat/chat.png"
-                alt="ZeqouXChat chat window with a conversation and message input"
-              />
+            <div className="preview-frame">
+              <TrainingMock />
             </div>
-            <p className="preview-caption">ZeqouXChat — the real app</p>
+            <p className="preview-caption">The XTraining workspace, previewed</p>
           </div>
         </Reveal>
 
-        <section className="app-section" aria-labelledby="xchat-inside">
+        <section className="app-section" aria-labelledby="xtraining-flow">
           <Reveal>
-            <h2 id="xchat-inside">Made for real conversations</h2>
+            <h2 id="xtraining-flow">Model → Dataset → Method → Settings → Train</h2>
             <p>
-              XChat stays out of the way: fast chat, full context from your code and files, and
-              customization that shapes the assistant around your workflow.
+              Seven steps in one wizard: pick a model from the Hugging Face Hub or a local folder,
+              point at a dataset, choose LoRA, QLoRA or SFT, then start. Simple mode shows the four
+              settings that decide whether a run succeeds; Advanced mode hands you everything —
+              quantization, scheduler, LoRA rank, checkpoint retention — when you want it.
             </p>
             <div className="caps">
               {product.capabilities.map((capability) => (
@@ -93,24 +92,16 @@ export function XChat() {
           </Reveal>
         </section>
 
-        <section className="app-section" aria-labelledby="xchat-models">
+        <section className="app-section" aria-labelledby="xtraining-check">
           <Reveal>
-            <h2 id="xchat-models">Every model, one Hub</h2>
+            <h2 id="xtraining-check">It checks before it starts</h2>
             <p>
-              The Hub lists 121 providers and 423 models to choose from — OpenAI, Anthropic,
-              Google, xAI, Mistral, DeepSeek and more. Add a key, refresh, and chat.
+              Real GPU detection through <code>nvidia-smi</code> and <code>torch.cuda</code>, a VRAM
+              estimate for the run you configured, and dataset validation that reports field mapping,
+              duplicates, empty rows and over-length samples. Every blocker is collected in one place
+              — missing runtime, a dataset error, an estimate that will not fit — before you press
+              start.
             </p>
-            <div style={{ marginTop: 36 }}>
-              <div className="product-preview">
-                <div className="preview-frame natural">
-                  <Shot
-                    src="./assets/apps/xchat/hub.png"
-                    alt="ZeqouXChat provider Hub listing AI providers and models"
-                  />
-                </div>
-                <p className="preview-caption">The provider Hub inside XChat</p>
-              </div>
-            </div>
             <div className="caps">
               {product.providers.map((provider) => (
                 <span key={provider} className="cap">
@@ -121,34 +112,38 @@ export function XChat() {
           </Reveal>
         </section>
 
-        <section className="app-section" aria-labelledby="xchat-space">
+        <section className="app-section" aria-labelledby="xtraining-honest">
           <Reveal>
-            <h2 id="xchat-space">Organised around your work</h2>
+            <h2 id="xtraining-honest">No fake progress</h2>
             <p>
-              Chats, Projects, Memory, Downloads, Extensions and Settings live in one quiet
-              sidebar. Everything has its place — nothing shouts for attention.
+              The training runtime is not bundled — it is machine-specific and several gigabytes.
+              Until it is installed, the app says exactly what is missing and refuses to start a run
+              instead of drawing a simulated result. There are no invented GPU numbers and no buttons
+              that do nothing.
             </p>
-            <div style={{ marginTop: 36 }}>
-              <div className="product-preview">
-                <div className="preview-frame natural">
-                  <Shot
-                    src="./assets/apps/xchat/workspace.png"
-                    alt="ZeqouXChat workspace with navigation sidebar and chat"
-                  />
-                </div>
-                <p className="preview-caption">The XChat workspace</p>
-              </div>
-            </div>
           </Reveal>
         </section>
 
-        <section className="app-section" aria-labelledby="xchat-get">
+        <section className="app-section" aria-labelledby="xtraining-watch">
+          <Reveal>
+            <h2 id="xtraining-watch">Watch the run, keep the result</h2>
+            <p>
+              Live loss and learning-rate charts, a GPU and VRAM trace, logs and checkpoints while it
+              trains. Stop and pause are cooperative, so a paused run resumes from its last
+              checkpoint. When it finishes, test the model in the built-in playground, or export the
+              adapter and merge it into its base model.
+            </p>
+          </Reveal>
+        </section>
+
+        <section className="app-section" aria-labelledby="xtraining-get">
           <Reveal>
             <div className="download-row">
               <div>
-                <h2 id="xchat-get">Get XChat</h2>
+                <h2 id="xtraining-get">Get XTraining</h2>
                 <p className="lead">
-                  Available for {product.platforms.join(', ')}. Free to try.
+                  Free for {product.platforms.join(', ')}. Training needs a machine with Python and
+                  the ML runtime; everything else works without it.
                 </p>
               </div>
               <div className="download-btns">

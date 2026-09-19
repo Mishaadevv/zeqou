@@ -1,6 +1,6 @@
 # Zeqou — official ecosystem website
 
-Central hub for the Zeqou software ecosystem: Zeqou Harness, ZeqouXChat and future applications.
+Central hub for the Zeqou software ecosystem: Zeqou Harness, ZeqouXChat, ZeqouXTraining and future applications.
 
 English-only. Dark-first. Static build, ready for GitHub Pages.
 
@@ -56,6 +56,9 @@ Edit one file — `src/config/products.ts` — and append an entry:
 The home page, Apps catalogue, footer and updates feed pick it up automatically.
 For a full product page, add `src/pages/Next.tsx` and a `/apps/next` route in `src/app/App.tsx`.
 
+Product previews live in `previewFor` in `src/pages/Apps.tsx`: a real screenshot or promo video
+where one exists, and `src/components/TrainingMock.tsx` (a CSS mock) where none does yet.
+
 ## Edit content without touching design
 
 - Products/downloads: `src/config/products.ts`
@@ -67,6 +70,7 @@ For a full product page, add `src/pages/Next.tsx` and a `/apps/next` route in `s
 - Master mark: `public/assets/branding/zeqou-x.png`
 - Harness icon: `public/assets/apps/harness/icon.png`
 - XChat icon: `public/assets/apps/xchat/icon.png`
+- XTraining icon: `public/assets/apps/xtraining/icon.png`
 - Favicon / touch icon: `public/favicon.png`, `public/apple-touch-icon.png`
 - Open Graph: `public/og.png`
 - Harness promo video: `public/assets/videos/harness.mp4` (see the README in that folder)

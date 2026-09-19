@@ -16,6 +16,9 @@ export function Ecosystem() {
         <Link to="/apps/xchat" className="eco-child">
           XCHAT
         </Link>
+        <Link to="/apps/xtraining" className="eco-child">
+          XTRAINING
+        </Link>
         <span className="eco-child dim">FUTURE</span>
       </div>
     </div>

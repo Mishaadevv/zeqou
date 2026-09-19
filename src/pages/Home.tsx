@@ -5,6 +5,7 @@ import { ProductBlock } from '../components/ProductBlock';
 import { Reveal } from '../components/Reveal';
 import { SEO } from '../components/SEO';
 import { Shot } from '../components/Shot';
+import { TrainingMock } from '../components/TrainingMock';
 import { getProduct } from '../config/products';
 import { site } from '../config/site';
 import { updates } from '../data/updates';
@@ -27,6 +28,7 @@ const principles = [
 export function Home() {
   const harness = getProduct('harness');
   const xchat = getProduct('xchat');
+  const xtraining = getProduct('xtraining');
   const latest = updates.slice(0, 3);
 
   return (
@@ -105,6 +107,15 @@ export function Home() {
                   />
                 }
                 caption="ZeqouXChat — the real app"
+              />
+            </Reveal>
+          )}
+          {xtraining && (
+            <Reveal>
+              <ProductBlock
+                product={xtraining}
+                preview={<TrainingMock />}
+                caption="ZeqouXTraining — the training workspace, previewed"
               />
             </Reveal>
           )}

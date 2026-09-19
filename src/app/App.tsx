@@ -10,6 +10,7 @@ import { Home } from '../pages/Home';
 import { NotFound } from '../pages/NotFound';
 import { Updates } from '../pages/Updates';
 import { XChat } from '../pages/XChat';
+import { XTraining } from '../pages/XTraining';
 
 /**
  * Hash routing is used deliberately: GitHub Pages serves static files
@@ -40,6 +41,7 @@ export function App() {
             <Route path="/apps" element={<Apps />} />
             <Route path="/apps/harness" element={<Harness />} />
             <Route path="/apps/xchat" element={<XChat />} />
+            <Route path="/apps/xtraining" element={<XTraining />} />
             <Route path="/updates" element={<Updates />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />

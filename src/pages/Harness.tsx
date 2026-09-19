@@ -47,7 +47,7 @@ export function Harness() {
                 Version <strong>{product.version}</strong>
               </span>
               <span>
-                Platform <strong>Windows</strong>
+                Platform <strong>{product.platforms.join(', ')}</strong>
               </span>
             </div>
             <div className="app-hero-cta">
@@ -128,7 +128,9 @@ export function Harness() {
             <div className="download-row">
               <div>
                 <h2 id="harness-get">Get Harness</h2>
-                <p className="lead">Available for Windows. Free to try.</p>
+                <p className="lead">
+                  Available for {product.platforms.join(', ')}. Free to try.
+                </p>
               </div>
               <div className="download-btns">
                 <a

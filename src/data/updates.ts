@@ -8,13 +8,20 @@
 export interface UpdateEntry {
   id: string;
   /** Product slug from products.ts, or 'ecosystem' for cross-cutting news. */
-  product: 'harness' | 'xchat' | 'ecosystem';
+  product: 'harness' | 'xchat' | 'xtraining' | 'ecosystem';
   productLabel: string;
   title: string;
   kind: string;
 }
 
 export const updates: UpdateEntry[] = [
+  {
+    id: 'xtraining-release',
+    product: 'xtraining',
+    productLabel: 'ZeqouXTraining',
+    title: 'New release',
+    kind: 'Release',
+  },
   {
     id: 'harness-release',
     product: 'harness',

@@ -1,12 +1,45 @@
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { HarnessPreview } from '../components/HarnessPreview';
 import { ProductBlock } from '../components/ProductBlock';
 import { Reveal } from '../components/Reveal';
 import { SEO } from '../components/SEO';
 import { Shot } from '../components/Shot';
+import { TrainingMock } from '../components/TrainingMock';
+import type { Product } from '../config/products';
 import { products } from '../config/products';
 
 type Filter = 'all' | 'available' | 'coming-soon';
+
+/** The real product where one exists, a CSS mock where it does not. */
+function previewFor(product: Product): { preview: ReactNode; caption: string; natural?: boolean } {
+  if (product.slug === 'harness') {
+    return {
+      preview: (
+        <HarnessPreview src={product.video} label={`${product.name} product preview`} />
+      ),
+      caption: 'Zeqou Harness — live product preview',
+    };
+  }
+
+  if (product.slug === 'xtraining') {
+    return {
+      preview: <TrainingMock />,
+      caption: 'ZeqouXTraining — the training workspace, previewed',
+    };
+  }
+
+  return {
+    preview: (
+      <Shot
+        src="./assets/apps/xchat/chat.png"
+        alt="ZeqouXChat chat window with a conversation and message input"
+      />
+    ),
+    caption: 'ZeqouXChat — the real app',
+    natural: true,
+  };
+}
 
 const filters: { value: Filter; label: string }[] = [
   { value: 'all', label: 'All' },
@@ -24,7 +57,7 @@ export function Apps() {
     <div className="page">
       <SEO
         title="Apps — Zeqou"
-        description="Every application in the Zeqou ecosystem: Harness, XChat and upcoming tools."
+        description="Every application in the Zeqou ecosystem: Harness, XChat, XTraining and upcoming tools."
       />
       <div className="container">
         <div className="page-hero">
@@ -49,33 +82,20 @@ export function Apps() {
           ))}
         </div>
 
-        {visible.map((product, index) => (
-          <Reveal key={product.slug}>
-            <ProductBlock
-              product={product}
-              mirror={index % 2 === 1}
-              natural={product.slug === 'xchat'}
-              preview={
-                product.slug === 'harness' ? (
-                  <HarnessPreview
-                    src={product.video}
-                    label={`${product.name} product preview`}
-                  />
-                ) : (
-                  <Shot
-                    src="./assets/apps/xchat/chat.png"
-                    alt="ZeqouXChat chat window with a conversation and message input"
-                  />
-                )
-              }
-              caption={
-                product.slug === 'harness'
-                  ? 'Zeqou Harness — live product preview'
-                  : 'ZeqouXChat — the real app'
-              }
-            />
-          </Reveal>
-        ))}
+        {visible.map((product, index) => {
+          const media = previewFor(product);
+          return (
+            <Reveal key={product.slug}>
+              <ProductBlock
+                product={product}
+                mirror={index % 2 === 1}
+                natural={media.natural}
+                preview={media.preview}
+                caption={media.caption}
+              />
+            </Reveal>
+          );
+        })}
 
         {filter !== 'available' && (
           <Reveal>

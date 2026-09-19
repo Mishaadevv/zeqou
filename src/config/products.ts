@@ -26,6 +26,8 @@ export interface Product {
   longDescription: string;
   status: ProductStatus;
   version: string;
+  /** Platforms with an official download. */
+  platforms: string[];
   /** Relative path to the product icon in public/. */
   icon: string;
   /** Relative paths to screenshots in public/. Empty until shipped. */
@@ -54,6 +56,7 @@ export const products: Product[] = [
       'An AI workspace for developers, agents, models, tools, memory and MCP. Connect providers, orchestrate agents and keep project context in one focused place.',
     status: 'available',
     version: '1.0',
+    platforms: ['Windows', 'macOS', 'Linux'],
     icon: './assets/apps/harness/icon.png',
     screenshots: [],
     video: './assets/videos/harness.mp4',
@@ -76,6 +79,7 @@ export const products: Product[] = [
       'A desktop AI chat application built around modern AI providers and developer workflows. Fast conversations, code and file support, and a workspace that adapts to you.',
     status: 'available',
     version: '1.0',
+    platforms: ['Windows', 'macOS', 'Linux'],
     icon: './assets/apps/xchat/icon.png',
     screenshots: [
       './assets/apps/xchat/chat.png',
@@ -87,6 +91,45 @@ export const products: Product[] = [
     docsUrl: 'https://github.com/Mishaadevv/xchat#readme',
     capabilities: ['Modern chat', 'Code and files', 'Provider choice', 'Customization'],
     providers: ['OpenAI', 'Anthropic', 'Google', 'OpenRouter', 'Ollama', 'Custom endpoints'],
+  },
+  {
+    name: 'ZeqouXTraining',
+    brand: ['ZEQOU', 'XTRAINING'],
+    slug: 'xtraining',
+    tagline: 'Fine-tune models. No guesswork.',
+    description:
+      'A desktop workspace for training and fine-tuning AI models on your own hardware.',
+    longDescription:
+      'A desktop workspace for training and fine-tuning AI models. Pick a model, point at a dataset, choose a method — LoRA, QLoRA or SFT — and the app checks the hardware, estimates VRAM and runs it, with live charts, checkpoints and a finished adapter you can export.',
+    status: 'available',
+    version: '0.1',
+    platforms: ['Windows', 'macOS', 'Linux'],
+    icon: './assets/apps/xtraining/icon.png',
+    screenshots: [],
+    // No tagged build yet — this page fills in once v0.1.0 is tagged.
+    downloadUrl: 'https://github.com/Mishaadevv/xtraining/releases',
+    githubUrl: 'https://github.com/Mishaadevv/xtraining',
+    docsUrl: 'https://github.com/Mishaadevv/xtraining#readme',
+    capabilities: [
+      'LoRA',
+      'QLoRA',
+      'SFT',
+      'Dataset validation',
+      'GPU detection',
+      'VRAM estimate',
+      'Live charts',
+      'Export and merge',
+    ],
+    providers: [
+      'Hugging Face',
+      'Local models',
+      'JSON',
+      'JSONL',
+      'CSV',
+      'Parquet',
+      'transformers',
+      'peft',
+    ],
   },
 ];
 
