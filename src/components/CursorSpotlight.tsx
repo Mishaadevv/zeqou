@@ -67,12 +67,12 @@ export function CursorSpotlight() {
     root.style.setProperty('--cx', `${x}px`);
     root.style.setProperty('--cy', `${y}px`);
     raf = requestAnimationFrame(tick);
-    window.addEventListener('mousemove', onMove, { passive: true });
+    window.addEventListener('pointermove', onMove, { passive: true });
     document.documentElement.addEventListener('mouseleave', onLeave);
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('pointermove', onMove);
       document.documentElement.removeEventListener('mouseleave', onLeave);
       root.classList.remove('cursor-active');
       for (const node of document.querySelectorAll<HTMLElement>('[data-magnet]')) {

@@ -142,7 +142,7 @@ export function DotWave() {
       colors.dot = s.getPropertyValue('--faint').trim() || colors.dot;
     });
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-    window.addEventListener('mousemove', onMove, { passive: true });
+    window.addEventListener('pointermove', onMove, { passive: true });
     document.documentElement.addEventListener('mouseleave', onLeave);
 
     return () => {
@@ -150,7 +150,7 @@ export function DotWave() {
       observer.disconnect();
       visibility.disconnect();
       themeObserver.disconnect();
-      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('pointermove', onMove);
       document.documentElement.removeEventListener('mouseleave', onLeave);
     };
   }, []);

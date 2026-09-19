@@ -39,8 +39,7 @@ export function LogoParticles() {
     }
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const coarse = window.matchMedia('(pointer: coarse)').matches;
-    const interactive = !reduced && !coarse;
+    const interactive = !reduced;
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = SIZE * dpr;
@@ -177,7 +176,7 @@ export function LogoParticles() {
         toParticles(kept);
         if (interactive) {
           raf = requestAnimationFrame(tick);
-          window.addEventListener('mousemove', onMove, { passive: true });
+          window.addEventListener('pointermove', onMove, { passive: true });
           document.documentElement.addEventListener('mouseleave', onLeave);
         } else {
           drawStatic();
@@ -201,7 +200,7 @@ export function LogoParticles() {
       cancelled = true;
       cancelAnimationFrame(raf);
       themeObserver.disconnect();
-      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('pointermove', onMove);
       document.documentElement.removeEventListener('mouseleave', onLeave);
     };
   }, []);

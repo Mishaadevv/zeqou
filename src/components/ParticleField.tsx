@@ -26,7 +26,6 @@ export function ParticleField() {
     if (!ctx) return;
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const coarse = window.matchMedia('(pointer: coarse)').matches;
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const styles = getComputedStyle(document.documentElement);
@@ -71,7 +70,7 @@ export function ParticleField() {
         const dx = m.x - mx;
         const dy = m.y - my;
         const dist = Math.hypot(dx, dy);
-        if (!coarse && dist < RADIUS && dist > 0.01) {
+        if (dist < RADIUS && dist > 0.01) {
           const force = ((RADIUS - dist) / RADIUS) * 1.6;
           m.vx += (dx / dist) * force;
           m.vy += (dy / dist) * force;
@@ -147,14 +146,14 @@ export function ParticleField() {
       { threshold: 0.05 },
     );
     visibility.observe(canvas);
-    window.addEventListener('mousemove', onMove, { passive: true });
+    window.addEventListener('pointermove', onMove, { passive: true });
     document.documentElement.addEventListener('mouseleave', onLeave);
 
     return () => {
       stop();
       observer.disconnect();
       visibility.disconnect();
-      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('pointermove', onMove);
       document.documentElement.removeEventListener('mouseleave', onLeave);
     };
   }, []);
