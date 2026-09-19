@@ -88,7 +88,7 @@ export const docs: DocPage[] = [
       'Premium desktop workspace for AI models and agents. Connect providers, orchestrate agents, keep project context in one place.',
     githubUrl: 'https://github.com/Mishaadevv/harness',
     websiteRoute: '/apps/harness',
-    version: '1.2.0',
+    version: '1.3.0',
     stack: ['Electron 33', 'JavaScript', 'OpenAI', 'Anthropic', 'Google', 'OpenRouter', 'Ollama', 'MCP'],
     blocks: [
       {
@@ -104,6 +104,7 @@ export const docs: DocPage[] = [
         list: [
           'Agent and model workspace on desktop.',
           'Tools, memory and MCP support.',
+          'Agent todo list: for multi-step jobs the agent plans its work with the todo tool — the Tasks panel shows the plan live with pending / doing / done status you can also edit by hand.',
           'Providers: OpenAI, Anthropic, Google, OpenRouter, Ollama and custom endpoints.',
         ],
       },

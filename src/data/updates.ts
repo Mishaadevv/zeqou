@@ -16,6 +16,27 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'harness-v130-todo',
+    product: 'harness',
+    productLabel: 'Zeqou Harness 1.3',
+    title: 'Agent todo list: live Tasks panel + the todo tool',
+    kind: 'Feature',
+  },
+  {
+    id: 'xchat-v031-context',
+    product: 'xchat',
+    productLabel: 'ZeqouXChat 0.3.1',
+    title: 'Real-time context window with exact server tokens',
+    kind: 'Update',
+  },
+  {
+    id: 'xtraining-v040-any-model',
+    product: 'xtraining',
+    productLabel: 'ZeqouXTraining 0.4',
+    title: 'Fine-tune any model, including your own trained ones',
+    kind: 'Release',
+  },
+  {
     id: 'xtraining-v020',
     product: 'xtraining',
     productLabel: 'ZeqouXTraining 0.2',
