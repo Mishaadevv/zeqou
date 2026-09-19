@@ -16,10 +16,10 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
-    id: 'xtraining-release',
+    id: 'xtraining-v020',
     product: 'xtraining',
-    productLabel: 'ZeqouXTraining',
-    title: 'New release',
+    productLabel: 'ZeqouXTraining 0.2',
+    title: 'Train models from scratch + one-click runtime install',
     kind: 'Release',
   },
   {

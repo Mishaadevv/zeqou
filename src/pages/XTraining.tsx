@@ -78,9 +78,10 @@ export function XTraining() {
             <h2 id="xtraining-flow">Model → Dataset → Method → Settings → Train</h2>
             <p>
               Seven steps in one wizard: pick a model from the Hugging Face Hub or a local folder,
-              point at a dataset, choose LoRA, QLoRA or SFT, then start. Simple mode shows the four
-              settings that decide whether a run succeeds; Advanced mode hands you everything —
-              quantization, scheduler, LoRA rank, checkpoint retention — when you want it.
+              point at a dataset, then choose LoRA, QLoRA, SFT, a full fine-tune — or train a small
+              model from scratch with no base model at all. Simple mode shows the four settings that
+              decide whether a run succeeds; Advanced mode hands you everything — quantization,
+              scheduler, LoRA rank, checkpoint retention, the scratch architecture — when you want it.
             </p>
             <div className="caps">
               {product.capabilities.map((capability) => (
@@ -114,12 +115,13 @@ export function XTraining() {
 
         <section className="app-section" aria-labelledby="xtraining-honest">
           <Reveal>
-            <h2 id="xtraining-honest">No fake progress</h2>
+            <h2 id="xtraining-honest">Setup in one click, no fake progress</h2>
             <p>
               The training runtime is not bundled — it is machine-specific and several gigabytes.
-              Until it is installed, the app says exactly what is missing and refuses to start a run
-              instead of drawing a simulated result. There are no invented GPU numbers and no buttons
-              that do nothing.
+              Instead of sending you to a terminal, the app creates its own isolated environment and
+              installs PyTorch and every companion package itself, with the pip log visible. When
+              something is still missing it says exactly what, in plain language, and refuses to draw
+              a simulated result. There are no invented GPU numbers and no buttons that do nothing.
             </p>
           </Reveal>
         </section>
