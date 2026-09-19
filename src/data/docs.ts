@@ -180,6 +180,19 @@ export const docs: DocPage[] = [
         code: { lang: 'bash', code: 'npm run tauri build' },
       },
       {
+        heading: 'Free local models, no Ollama needed',
+        paragraphs: [
+          'On first launch XChat suggests five free GGUF models — MiniCPM5 2B, LFM2.5 8B-A1B, OmniCoder 9B, Gemma 4 E2B, K2-Horizon 7B. Each card shows the download size, the RAM it needs, and whether your machine fits it (CPU, RAM, GPU and Ollama presence are probed). One button downloads, the screen can be skipped and reopened later from Downloads → Recommended or the round button in Settings.',
+          'Downloads stream straight to disk with resume and retry, and the app picks the Q4_K_M quant automatically. No Ollama or LM Studio install is required: XChat ships a built-in llama-server engine — it downloads itself on first use (CUDA build for NVIDIA, CPU otherwise) and runs the model on localhost. If the download fails, a manual-zip fallback is offered.',
+        ],
+      },
+      {
+        heading: 'Local context size',
+        paragraphs: [
+          'For local providers (Ollama, llama.cpp server, LM Studio and friends) the message box shows a context selector — 4K to 128K. It sets the context the chat is measured against, and for the built-in engine it restarts the server with the new size. Cloud models keep their own fixed sizes.',
+        ],
+      },
+      {
         heading: 'AIens folder (experimental)',
         paragraphs: [
           'AIens/ contains experimental Python tools for dataset preparation and model training. See requirements-ml.txt inside. The repo root also ships dataset_ru.json (Russian dataset) and preview.txt.',
