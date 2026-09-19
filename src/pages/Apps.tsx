@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import { DotWave } from '../components/DotWave';
 import { HarnessPreview } from '../components/HarnessPreview';
 import { ProductBlock } from '../components/ProductBlock';
 import { Reveal } from '../components/Reveal';
@@ -60,7 +61,8 @@ export function Apps() {
         description="Every application in the Zeqou ecosystem: Harness, XChat, XTraining and upcoming tools."
       />
       <div className="container">
-        <div className="page-hero">
+        <div className="page-hero page-hero-with-wave">
+          <DotWave />
           <p className="label">Catalogue</p>
           <h1>Apps</h1>
           <p className="lead">

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Ecosystem } from '../components/Ecosystem';
 import { HarnessPreview } from '../components/HarnessPreview';
+import { LogoParticles } from '../components/LogoParticles';
+import { ParticleField } from '../components/ParticleField';
 import { ProductBlock } from '../components/ProductBlock';
 import { Reveal } from '../components/Reveal';
 import { SEO } from '../components/SEO';
@@ -60,12 +62,7 @@ export function Home() {
             </div>
           </div>
           <figure className="hero-mark">
-            <img
-              src="./assets/branding/zeqou-x.png"
-              alt="Zeqou X brand mark"
-              width={400}
-              height={400}
-            />
+            <LogoParticles />
           </figure>
         </div>
       </section>
@@ -194,6 +191,7 @@ export function Home() {
         <div className="container">
           <Reveal>
             <div className="github-block">
+              <ParticleField />
               <h2 id="github-title">Built in public.</h2>
               <p>Explore Zeqou projects, releases and source code.</p>
               <a

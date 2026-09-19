@@ -383,6 +383,15 @@ video {
   transition: box-shadow 0.6s var(--ease);
 }
 
+.hero-mark canvas {
+  width: min(400px, 100%);
+  aspect-ratio: 1;
+}
+
+.logo-particles {
+  cursor: crosshair;
+}
+
 .hero-mark img:hover {
   box-shadow: 0 0 120px -20px var(--mark-glow);
 }
@@ -998,8 +1007,23 @@ a.eco-child:hover {
 
 /* ── GitHub — one headline, one button ──── */
 .github-block {
+  position: relative;
   text-align: center;
   padding: 60px 0;
+  overflow: clip;
+}
+
+.particle-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.github-block > :not(.particle-field) {
+  position: relative;
+  z-index: 1;
 }
 
 .github-block h2 {
@@ -1279,6 +1303,10 @@ a.eco-child:hover {
   .hero-mark img {
     width: min(300px, 78%);
     border-radius: 48px;
+  }
+
+  .hero-mark canvas {
+    width: min(300px, 78%);
   }
 
   .product-block,
@@ -1591,8 +1619,26 @@ a.eco-child:hover {
   }
 }
 
-/* ── Cursor spotlight — interactive pointer glow ── */
-.cursor-spotlight {
+/* ── Dot wave (Apps catalogue hero) ───── */
+.page-hero-with-wave {
+  position: relative;
+  overflow: clip;
+}
+
+.dot-wave {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.page-hero-with-wave > :not(.dot-wave) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Cursor spotlight — interactive pointer glow ── */.cursor-spotlight {
   position: fixed;
   inset: 0;
   z-index: 1;
@@ -1636,6 +1682,10 @@ a.btn, button.btn, .doc-card {
 :root.cursor-active .hero-mark img {
   scale: 1.015;
   box-shadow: 0 0 120px -20px var(--mark-glow);
+}
+
+:root.cursor-active .hero-mark canvas {
+  scale: 1.015;
 }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
