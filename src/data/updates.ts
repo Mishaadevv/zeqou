@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'xtraining-v200-rebuild',
+    product: 'xtraining',
+    productLabel: 'ZeqouXTraining 2.0',
+    title: 'Rebuilt engine, two training backends, installers that update themselves',
+    kind: 'Release',
+  },
+  {
     id: 'harness-v130-todo',
     product: 'harness',
     productLabel: 'Zeqou Harness 1.3',

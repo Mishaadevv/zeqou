@@ -19,7 +19,7 @@ export function XTraining() {
     <div className="page">
       <SEO
         title="ZeqouXTraining — Zeqou"
-        description="A desktop workspace for training and fine-tuning AI models on your own hardware."
+        description="A local-first desktop studio for training, fine-tuning, evaluating and serving AI models on your own hardware."
       />
       <div className="container">
         <div className="app-hero">
@@ -77,11 +77,13 @@ export function XTraining() {
           <Reveal>
             <h2 id="xtraining-flow">Model → Dataset → Method → Settings → Train</h2>
             <p>
-              Seven steps in one wizard: pick a model from the Hugging Face Hub or a local folder,
-              point at a dataset, then choose LoRA, QLoRA, SFT, a full fine-tune — or train a small
-              model from scratch with no base model at all. Simple mode shows the four settings that
-              decide whether a run succeeds; Advanced mode hands you everything — quantization,
-              scheduler, LoRA rank, checkpoint retention, the scratch architecture — when you want it.
+              One Training page takes you through it: pick a model from the Hugging Face Hub or a
+              local folder, point at a dataset, then choose LoRA, QLoRA, SFT, a full fine-tune — or
+              train a small transformer from scratch with no base model at all. Simple mode shows the
+              settings that decide whether a run succeeds; Advanced mode hands you the rest —
+              quantization, scheduler, LoRA rank, checkpoint retention, the scratch architecture.
+              Presets fill the whole form in one click, so a first run is two minutes of reading, not
+              an afternoon of YAML.
             </p>
             <div className="caps">
               {product.capabilities.map((capability) => (
@@ -97,11 +99,11 @@ export function XTraining() {
           <Reveal>
             <h2 id="xtraining-check">It checks before it starts</h2>
             <p>
-              Real GPU detection through <code>nvidia-smi</code> and <code>torch.cuda</code>, a VRAM
-              estimate for the run you configured, and dataset validation that reports field mapping,
-              duplicates, empty rows and over-length samples. Every blocker is collected in one place
-              — missing runtime, a dataset error, an estimate that will not fit — before you press
-              start.
+              Real hardware detection through the CPU, the driver, <code>nvidia-smi</code> and{' '}
+              <code>torch.cuda</code>; a memory estimate for the run you configured, labelled as an
+              estimate; and dataset validation that reports field mapping, duplicates, empty rows and
+              over-length samples. Every blocker is collected in one place — a missing runtime, a
+              dataset error, an estimate that will not fit — before you press start.
             </p>
             <div className="caps">
               {product.providers.map((provider) => (
@@ -115,13 +117,16 @@ export function XTraining() {
 
         <section className="app-section" aria-labelledby="xtraining-honest">
           <Reveal>
-            <h2 id="xtraining-honest">Setup in one click, no fake progress</h2>
+            <h2 id="xtraining-honest">Works before you install anything — and never fakes it</h2>
             <p>
-              The training runtime is not bundled — it is machine-specific and several gigabytes.
-              Instead of sending you to a terminal, the app creates its own isolated environment and
-              installs PyTorch and every companion package itself, with the pip log visible. When
-              something is still missing it says exactly what, in plain language, and refuses to draw
-              a simulated result. There are no invented GPU numbers and no buttons that do nothing.
+              Two backends ship with the app. The from-scratch backend is pure Python: it needs
+              nothing but an interpreter and trains as soon as you press start. The Hugging Face
+              backend lights up when PyTorch, transformers and peft are present — and PyTorch has no
+              wheels for some Python versions, which the app says out loud instead of failing later.
+              The ML runtime is never bundled and never installed behind your back: it is
+              machine-specific and several gigabytes, so the app discovers the interpreters you
+              already have, explains which one can run it, and installs only when you ask — into its
+              own environment inside the workspace, never into your system Python.
             </p>
           </Reveal>
         </section>
@@ -130,10 +135,14 @@ export function XTraining() {
           <Reveal>
             <h2 id="xtraining-watch">Watch the run, keep the result</h2>
             <p>
-              Live loss and learning-rate charts, a GPU and VRAM trace, logs and checkpoints while it
-              trains. Stop and pause are cooperative, so a paused run resumes from its last
-              checkpoint. When it finishes, test the model in the built-in playground, or export the
-              adapter and merge it into its base model.
+              Live loss and learning-rate charts, logs and checkpoints while it trains. Stop and
+              pause are cooperative, so a paused run resumes from its last checkpoint — weights,
+              optimizer, scheduler and RNG restored, with the engine reporting per item what was
+              really restored. Continuing a finished model is a separate, deliberate operation with
+              a fresh optimizer, and every model keeps a <code>parent</code> link, so the Experiments
+              page can draw the real lineage tree. When it finishes, evaluate it, test it in the
+              built-in playground, serve it locally, or merge and export the adapter with a model
+              card.
             </p>
           </Reveal>
         </section>
@@ -144,8 +153,10 @@ export function XTraining() {
               <div>
                 <h2 id="xtraining-get">Get XTraining</h2>
                 <p className="lead">
-                  Free for {product.platforms.join(', ')}. Training needs a machine with Python and
-                  the ML runtime; everything else works without it.
+                  Free for {product.platforms.join(', ')}. Needs Python 3.10 – 3.13; the from-scratch
+                  backend needs nothing else, and PyTorch only becomes necessary when you fine-tune a
+                  real Hugging Face checkpoint. Installed builds update themselves from the release
+                  channel.
                 </p>
               </div>
               <div className="download-btns">
