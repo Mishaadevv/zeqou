@@ -284,7 +284,7 @@ export const docs: DocPage[] = [
         heading: 'Updates and signing',
         paragraphs: [
           'Installed builds update themselves from the release channel on GitHub. Settings → Updates shows the installed version, the channel, the last check and the updater log, and can check, download and restart into an update — a download happens only when asked for and an install only on an explicit restart. The download is checked against its SHA-512 and against the publisher named in the build; an update that cannot be verified is refused rather than installed.',
-          'Builds are signed with a code-signing certificate, and the publisher name recorded in the build has to match the certificate, otherwise the app will not accept its own updates. Development builds use a self-signed certificate, so Windows warns until it is trusted on that machine.',
+          'Installer builds can be signed with a code-signing certificate, and the publisher name recorded in the build has to match that certificate — otherwise the app refuses its own updates as unsigned by someone else. There is no certificate configured for the published build yet, so the installers on the release page are unsigned and Windows warns about an unknown publisher; the local build script signs with a self-signed certificate when asked to.',
         ],
       },
       {
