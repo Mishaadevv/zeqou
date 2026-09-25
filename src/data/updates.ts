@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'harness-v140-plan',
+    product: 'harness',
+    productLabel: 'Zeqou Harness 1.4',
+    title: 'Read-only agent plan, a transcript that stays still, and a question card that replaces guessing',
+    kind: 'Release',
+  },
+  {
     id: 'xtraining-v200-rebuild',
     product: 'xtraining',
     productLabel: 'ZeqouXTraining 2.0',

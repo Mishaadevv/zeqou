@@ -55,17 +55,16 @@ export const products: Product[] = [
     longDescription:
       'An AI workspace for developers, agents, models, tools, memory and MCP. Connect providers, orchestrate agents and keep project context in one focused place.',
     status: 'available',
-    version: '1.3.0',
+    version: '1.4.0',
     platforms: ['Windows', 'macOS', 'Linux'],
     icon: './assets/apps/harness/icon.png',
     screenshots: [],
     video: './assets/videos/harness.mp4',
     videoSecondary: './assets/videos/harness-extra.mp4',
-    // TODO: replace with the real Windows installer / release link.
     downloadUrl: 'https://github.com/Mishaadevv/harness/releases',
     githubUrl: 'https://github.com/Mishaadevv/harness',
     docsUrl: 'https://github.com/Mishaadevv/harness#readme',
-    capabilities: ['Agents', 'Models', 'Tools', 'MCP', 'Memory', 'Projects', 'Live task lists'],
+    capabilities: ['Agents', 'Models', 'Tools', 'MCP', 'Memory', 'Projects', 'Agent plans', 'Agent questions'],
     providers: ['OpenAI', 'Anthropic', 'Google', 'OpenRouter', 'Ollama', 'Custom endpoints'],
   },
   {

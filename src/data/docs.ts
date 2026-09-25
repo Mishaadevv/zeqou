@@ -67,7 +67,7 @@ export const docs: DocPage[] = [
         ],
         list: [
           'Zeqou/ — website (npm run dev, npm run build). Version 0.0.0.',
-          'Zeqou Harness/ — Electron app, v1.2.0, appId ai.zeqou.harness.',
+          'Zeqou Harness/ — Electron app, v1.4.0, appId ai.zeqou.harness.',
           'ZeqouXchat/ — Tauri 2 app, v0.2.0, plus AIens/ Python experiments and dataset_ru.json.',
           'ZeqouXTraining/ — Electron shell + pure-Python engine, v2.0.0, appId ai.zeqou.xtraining.',
         ],
@@ -88,7 +88,7 @@ export const docs: DocPage[] = [
       'Premium desktop workspace for AI models and agents. Connect providers, orchestrate agents, keep project context in one place.',
     githubUrl: 'https://github.com/Mishaadevv/harness',
     websiteRoute: '/apps/harness',
-    version: '1.3.0',
+    version: '1.4.0',
     stack: ['Electron 33', 'JavaScript', 'OpenAI', 'Anthropic', 'Google', 'OpenRouter', 'Ollama', 'MCP'],
     blocks: [
       {
@@ -104,7 +104,9 @@ export const docs: DocPage[] = [
         list: [
           'Agent and model workspace on desktop.',
           'Tools, memory and MCP support.',
-          'Agent todo list: for multi-step jobs the agent plans its work with the todo tool — the Tasks panel shows the plan live with pending / doing / done status you can also edit by hand.',
+          'Agent plan: for multi-step work the agent writes its steps with the todo tool and keeps them updated. The plan is a quiet card at the end of the chat it belongs to, with a progress line and a done count, and it is read-only — the user has nothing to tick, add or reorder, because the assistant wrote this plan, not them.',
+          'A plan never outlives its run: if the run is stopped, fails or hits the step limit, the steps it never finished are dropped with it. What it completed stays in the chat as a record.',
+          'Agent questions: the ask_user tool lets the agent stop and ask instead of guessing. The question appears as a card in the chat and is answered by clicking an option or typing an answer, and the run continues with it.',
           'Providers: OpenAI, Anthropic, Google, OpenRouter, Ollama and custom endpoints.',
         ],
       },
@@ -115,7 +117,7 @@ export const docs: DocPage[] = [
         ],
         code: {
           lang: 'bash',
-          code: 'npm install\nnpm start        # run the Electron app\nnpm run dev      # run with --dev flag',
+          code: 'npm install\nnpm start        # run the Electron app\nnpm run dev      # run with --dev flag\nnpm run smoke    # boot the app, walk every page, exercise the agent tools',
         },
       },
       {
