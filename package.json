@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "npm run versions:check && tsc && vite build",
+    "preview": "vite preview",
+    "versions": "node scripts/sync-versions.mjs",
+    "versions:check": "node scripts/sync-versions.mjs --check"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

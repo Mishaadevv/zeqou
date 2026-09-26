@@ -9,6 +9,8 @@
  * Replace them with the real links when available.
  */
 
+import { versions } from '../data/versions';
+
 export type ProductStatus = 'available' | 'coming-soon';
 
 export interface Product {
@@ -25,6 +27,7 @@ export interface Product {
   /** Longer paragraph for the product page hero. */
   longDescription: string;
   status: ProductStatus;
+  /** Version shipped in the app's own repository — see src/data/versions.ts. */
   version: string;
   /** Platforms with an official download. */
   platforms: string[];
@@ -55,7 +58,7 @@ export const products: Product[] = [
     longDescription:
       'An AI workspace for developers, agents, models, tools, memory and MCP. Connect providers, orchestrate agents and keep project context in one focused place.',
     status: 'available',
-    version: '1.4.0',
+    version: versions.harness,
     platforms: ['Windows', 'macOS', 'Linux'],
     icon: './assets/apps/harness/icon.png',
     screenshots: [],
@@ -77,7 +80,7 @@ export const products: Product[] = [
     longDescription:
       'A desktop AI chat application built around modern AI providers and developer workflows. Streaming chat with code, files and formulas, a Hub of 121 providers and 423 models, and free local models that run on your own machine.',
     status: 'available',
-    version: '0.3.1',
+    version: versions.xchat,
     platforms: ['Windows', 'macOS', 'Linux'],
     icon: './assets/apps/xchat/icon.png',
     screenshots: [
@@ -119,7 +122,7 @@ export const products: Product[] = [
     longDescription:
       'A local-first training studio. Pick a model and a dataset, choose LoRA, QLoRA, SFT, a full fine-tune — or train a small transformer from scratch with nothing but Python. Runs are real processes with real gradients, checkpoints you can resume, and a lineage tree you can inspect. Models, datasets and logs are ordinary files in a workspace folder you choose; nothing is uploaded anywhere.',
     status: 'available',
-    version: '2.0.0',
+    version: versions.xtraining,
     platforms: ['Windows', 'macOS', 'Linux'],
     icon: './assets/apps/xtraining/icon.png',
     screenshots: [],
