@@ -68,7 +68,7 @@ export const docs: DocPage[] = [
         list: [
           'Zeqou/ — website (npm run dev, npm run build). Version 0.0.0.',
           'Zeqou Harness/ — Electron app, v1.4.0, appId ai.zeqou.harness.',
-          'ZeqouXchat/ — Tauri 2 app, v0.2.0, plus AIens/ Python experiments and dataset_ru.json.',
+          'ZeqouXchat/ — Tauri 2 app, v0.3.1, plus AIens/ Python experiments and dataset_ru.json.',
           'ZeqouXTraining/ — Electron shell + pure-Python engine, v2.0.0, appId ai.zeqou.xtraining.',
         ],
       },
@@ -148,8 +148,17 @@ export const docs: DocPage[] = [
       'Desktop AI chat with streaming, code highlighting, Markdown, KaTeX. Tauri 2 + React 19, small footprint.',
     githubUrl: 'https://github.com/Mishaadevv/xchat',
     websiteRoute: '/apps/xchat',
-    version: '0.2.0',
-    stack: ['Tauri 2', 'React 19', 'TypeScript', 'Tailwind', 'highlight.js', 'KaTeX', 'Rust'],
+    version: '0.3.1',
+    stack: [
+      'Tauri 2',
+      'React 19',
+      'TypeScript',
+      'Tailwind',
+      'highlight.js',
+      'KaTeX',
+      'llama.cpp (built-in engine)',
+      'Rust',
+    ],
     blocks: [
       {
         heading: 'What it is',
@@ -165,6 +174,7 @@ export const docs: DocPage[] = [
           'Streaming responses, modern chat interface.',
           'Code highlighting (highlight.js), Markdown, GFM, KaTeX formulas.',
           'Providers: OpenAI, Anthropic, Google, OpenRouter, Ollama, custom endpoints.',
+          'Real-time context window: the exact token count the server reports, not an estimate.',
           'Workspace: Chats, Projects, Memory, Downloads, Extensions, Settings in one sidebar.',
           'Screenshots in repo: chat.png, workspace.png, hub.png.',
         ],

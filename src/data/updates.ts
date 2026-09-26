@@ -1,8 +1,8 @@
 /**
  * Updates feed data.
  *
- * Placeholder content — replace with real release notes, versions and
- * dates as the ecosystem ships. Newest-first.
+ * Real releases and milestones, newest-first. Product slugs come from
+ * products.ts; 'ecosystem' is for cross-cutting news.
  */
 
 export interface UpdateEntry {
@@ -33,7 +33,7 @@ export const updates: UpdateEntry[] = [
     id: 'harness-v130-todo',
     product: 'harness',
     productLabel: 'Zeqou Harness 1.3',
-    title: 'Agent todo list: live Tasks panel + the todo tool',
+    title: 'Agent todo list: the todo tool writes the plan, in the chat where it belongs',
     kind: 'Feature',
   },
   {
@@ -42,6 +42,13 @@ export const updates: UpdateEntry[] = [
     productLabel: 'ZeqouXChat 0.3.1',
     title: 'Real-time context window with exact server tokens',
     kind: 'Update',
+  },
+  {
+    id: 'xchat-v030-local',
+    product: 'xchat',
+    productLabel: 'ZeqouXChat 0.3',
+    title: 'Free local models with a built-in engine — no Ollama or LM Studio required',
+    kind: 'Release',
   },
   {
     id: 'xtraining-v040-any-model',
@@ -58,24 +65,10 @@ export const updates: UpdateEntry[] = [
     kind: 'Release',
   },
   {
-    id: 'harness-release',
-    product: 'harness',
-    productLabel: 'Zeqou Harness',
-    title: 'New release',
-    kind: 'Release',
-  },
-  {
-    id: 'xchat-features',
-    product: 'xchat',
-    productLabel: 'ZeqouXChat',
-    title: 'New features',
-    kind: 'Update',
-  },
-  {
-    id: 'ecosystem-project',
+    id: 'ecosystem-docs',
     product: 'ecosystem',
     productLabel: 'Zeqou',
-    title: 'New project',
-    kind: 'Ecosystem',
+    title: 'Docs for every app: install, architecture and honest limits',
+    kind: 'Website',
   },
 ];

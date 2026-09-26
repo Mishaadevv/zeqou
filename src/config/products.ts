@@ -75,9 +75,9 @@ export const products: Product[] = [
     description:
       'A desktop AI chat application built around modern AI providers and developer workflows.',
     longDescription:
-      'A desktop AI chat application built around modern AI providers and developer workflows. Fast conversations, code and file support, and a workspace that adapts to you.',
+      'A desktop AI chat application built around modern AI providers and developer workflows. Streaming chat with code, files and formulas, a Hub of 121 providers and 423 models, and free local models that run on your own machine.',
     status: 'available',
-    version: '1.0',
+    version: '0.3.1',
     platforms: ['Windows', 'macOS', 'Linux'],
     icon: './assets/apps/xchat/icon.png',
     screenshots: [
@@ -88,8 +88,26 @@ export const products: Product[] = [
     downloadUrl: 'https://github.com/Mishaadevv/xchat/releases',
     githubUrl: 'https://github.com/Mishaadevv/xchat',
     docsUrl: 'https://github.com/Mishaadevv/xchat#readme',
-    capabilities: ['Modern chat', 'Code and files', 'Provider choice', 'Customization'],
-    providers: ['OpenAI', 'Anthropic', 'Google', 'OpenRouter', 'Ollama', 'Custom endpoints'],
+    capabilities: [
+      'Streaming chat',
+      'Code, files, KaTeX',
+      'Provider Hub',
+      'Local models',
+      'Built-in engine',
+      'Real-time context',
+    ],
+    providers: [
+      'OpenAI',
+      'Anthropic',
+      'Google',
+      'xAI',
+      'Mistral',
+      'DeepSeek',
+      'OpenRouter',
+      'Ollama',
+      'llama.cpp',
+      'Custom endpoints',
+    ],
   },
   {
     name: 'ZeqouXTraining',
