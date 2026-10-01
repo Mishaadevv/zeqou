@@ -18,7 +18,13 @@ export function Footer() {
             <nav aria-label="Footer">
               <Link to="/apps">Apps</Link>
               <Link to="/docs">Docs</Link>
+              <Link to="/downloads">Downloads</Link>
+              <Link to="/changelog">Changelog</Link>
               <Link to="/updates">Updates</Link>
+              <Link to="/faq">FAQ</Link>
+              <Link to="/support">Support</Link>
+              <Link to="/privacy">Privacy</Link>
+              <Link to="/license">License</Link>
               <a href={site.githubUrl} target="_blank" rel="noreferrer">
                 GitHub
               </a>

@@ -46,6 +46,14 @@ jobs:
       - name: Read the Ko-fi goal
         run: npm run goal:sync
 
+      # Files, sizes and SHA-256 digests for the download page, and the release
+      # notes for the changelog, read from the GitHub releases API. The token is
+      # what keeps the 60-requests-an-hour anonymous limit out of the way.
+      - name: Read the GitHub releases
+        run: npm run releases:sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build
         run: npm run build
 

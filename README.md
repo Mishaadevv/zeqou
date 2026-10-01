@@ -33,6 +33,8 @@ npm run preview
 - The route table is `src/routes.tsx`: path, page and head data in one entry. The router renders
   it, and `scripts/prerender.mjs` walks it, so adding a page adds its static HTML, its head and
   its sitemap entry at the same time.
+- The pages are the home page, `/apps` and `/apps/<slug>`, `/docs` and `/docs/<slug>`,
+  `/downloads`, `/changelog`, `/updates`, `/faq`, `/support`, `/license`, `/privacy` and `/about`.
 - Head tags (title, description, canonical, Open Graph, Twitter, JSON-LD, noindex) come from
   `src/lib/head.ts`. The browser component writes that list into `document.head`; the build step
   writes the same list into the HTML. One list, so a crawler and a visitor see the same page.
@@ -99,7 +101,9 @@ where one exists, and `src/components/TrainingMock.tsx` (a CSS mock) where none 
 - Products/downloads: `src/config/products.ts`
 - Global links/tagline — including the support links and their `enabled` flags: `src/config/site.ts`
 - Updates feed: `src/data/updates.ts`
+- FAQ: `src/data/faq.ts` (the page and its FAQPage JSON-LD read the same entries)
 - Ko-fi goal: `src/data/support.ts` (generated — see below)
+- Releases: `src/data/releases.ts` (generated — see below)
 
 ## Ko-fi goal
 
@@ -116,6 +120,23 @@ percent, and the date it was read.
 - A page that cannot be read never blanks the site: the committed value is kept and the run
   still succeeds. `npm run goal:sync -- --strict` turns that into a failure.
 - The date shown next to the bar is what makes a stale number honest, so it is always rendered.
+
+## Downloads and changelog
+
+`npm run releases:sync` reads the GitHub releases API and writes `src/data/releases.ts`: the
+latest releases of every application, with their files, sizes and the SHA-256 GitHub reports for
+each one. `/downloads` links to those exact files and `/changelog` renders their release notes, so
+no version, file name or hash is typed into the site by hand.
+
+- `.github/workflows/deploy.yml` runs it before every build, with `GITHUB_TOKEN`, which keeps the
+  60-requests-an-hour anonymous limit out of the way.
+- A release that cannot be read keeps what is committed, so one bad request cannot empty the
+  download page. `npm run releases:sync -- --strict` turns that into a failure.
+- Updater artefacts (`.blockmap`, `latest*.yml`, `.app.tar.gz`) are filtered out of the file — they
+  are not downloads a person can use.
+- The page needs no rule per application: files are sorted into Windows, macOS (Apple Silicon and
+  Intel counted separately) and Linux by their names, and a file no rule recognises is left out
+  rather than shown under a guessed label.
 
 ## Analytics
 

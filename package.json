@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "versions": "node scripts/sync-versions.mjs",
     "versions:check": "node scripts/sync-versions.mjs --check",
-    "goal:sync": "node scripts/sync-goal.mjs"
+    "goal:sync": "node scripts/sync-goal.mjs",
+    "releases:sync": "node scripts/sync-releases.mjs"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

@@ -3,14 +3,21 @@ import { SEO } from './components/SEO';
 import { site } from './config/site';
 import { getProduct } from './config/products';
 import { docs } from './data/docs';
+import { faq } from './data/faq';
 import { absoluteUrl } from './lib/paths';
 import type { PageMeta } from './lib/meta';
 import { About } from './pages/About';
 import { Apps } from './pages/Apps';
+import { Changelog } from './pages/Changelog';
 import { DocArticle } from './pages/DocArticle';
 import { Docs } from './pages/Docs';
+import { Downloads } from './pages/Downloads';
+import { Faq } from './pages/Faq';
 import { Harness } from './pages/Harness';
 import { Home } from './pages/Home';
+import { License } from './pages/License';
+import { Privacy } from './pages/Privacy';
+import { Support } from './pages/Support';
 import { Updates } from './pages/Updates';
 import { XChat } from './pages/XChat';
 import { XTraining } from './pages/XTraining';
@@ -61,6 +68,22 @@ function softwareApplication(slug: string, category: string): Record<string, unk
   };
 }
 
+/**
+ * The FAQ page as structured data: the same questions and answers the page
+ * shows, in the shape a search engine can read without rendering anything.
+ */
+function faqJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((entry) => ({
+      '@type': 'Question',
+      name: entry.question,
+      acceptedAnswer: { '@type': 'Answer', text: entry.answer },
+    })),
+  };
+}
+
 /** The head of the not-found page, used by the router and by 404.html. */
 export const notFoundMeta: PageMeta = {
   title: 'Page not found — Zeqou',
@@ -108,6 +131,37 @@ export const routes: RouteEntry[] = [
       ogType: 'article',
     }),
   ),
+  page('/downloads', <Downloads />, {
+    title: 'Downloads — Zeqou',
+    description:
+      'The newest releases of Zeqou Harness, ZeqouXChat and ZeqouXTraining: every file, its size and the SHA-256 the release reports.',
+  }),
+  page('/changelog', <Changelog />, {
+    title: 'Changelog — Zeqou',
+    description:
+      'Release notes for Zeqou Harness, ZeqouXChat and ZeqouXTraining, read from the releases published on GitHub.',
+  }),
+  page('/faq', <Faq />, {
+    title: 'FAQ — Zeqou',
+    description:
+      'Free, local or cloud, signed or not: short answers about Zeqou, its applications and their installers.',
+    jsonLd: faqJsonLd(),
+  }),
+  page('/support', <Support />, {
+    title: 'Support — Zeqou',
+    description:
+      'What donations pay for and how to give one. Every Zeqou app is free to download and update.',
+  }),
+  page('/license', <License />, {
+    title: 'License — Zeqou',
+    description:
+      'Zeqou is source-available under PolyForm Strict 1.0.0: noncommercial use is permitted, distributing or changing the code is not.',
+  }),
+  page('/privacy', <Privacy />, {
+    title: 'Privacy — Zeqou',
+    description:
+      'How this site counts visits without cookies, what the applications send, and which outside services take part.',
+  }),
   page('/updates', <Updates />, {
     title: 'Updates — Zeqou',
     description: 'New app releases, major updates and announcements across the Zeqou ecosystem.',

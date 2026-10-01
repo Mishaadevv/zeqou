@@ -6,34 +6,12 @@ import { ParticleField } from '../components/ParticleField';
 import { ProductBlock } from '../components/ProductBlock';
 import { Reveal } from '../components/Reveal';
 import { Shot } from '../components/Shot';
+import { SupportSection } from '../components/SupportSection';
 import { TrainingMock } from '../components/TrainingMock';
 import { getProduct } from '../config/products';
 import { site } from '../config/site';
-import { supportGoal } from '../data/support';
 import { asset } from '../lib/paths';
 import { updates } from '../data/updates';
-
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
-/** ISO date to a readable day, without a timezone moving it to the day before. */
-function formatDay(iso: string) {
-  const [year, month, day] = iso.split('-').map(Number);
-  if (!year || !month || !day) return iso;
-  return `${day} ${months[month - 1]} ${year}`;
-}
 
 const principles = [
   {
@@ -206,93 +184,7 @@ export function Home() {
       </section>
 
       {/* Support */}
-      <section className="section" aria-labelledby="support-title">
-        <div className="container">
-          <Reveal>
-            <div className="support-block">
-              <div className="support-copy">
-                <p className="label">Support</p>
-                <h2 id="support-title">Keep it free for everyone.</h2>
-                <p>
-                  Zeqou is written and maintained by one developer, and every app is free to
-                  download and update. If the ecosystem is useful to you, here is where
-                  contributions go.
-                </p>
-                <ul className="support-points">
-                  <li>
-                    <strong>Every donation goes back into the project.</strong> Contributions
-                    pay for the builds, the servers and the model runtimes the apps depend on.
-                  </li>
-                  <li>
-                    <strong>
-                      Our goal is to use donations to pay for hosted AI models that are free
-                      inside Zeqou Harness.
-                    </strong>{' '}
-                    How far that pool grows depends on how far the support goes — no model is
-                    promised ahead of time.
-                  </li>
-                </ul>
-              </div>
-              <div className="support-options">
-                {site.support
-                  .filter((option) => option.enabled)
-                  .map((option) => (
-                    <a
-                      key={option.label}
-                      className="support-option"
-                      href={option.href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="support-option-label">
-                        {option.label}
-                        <span className="arrow" aria-hidden="true">
-                          →
-                        </span>
-                      </span>
-                      <span className="support-option-note">{option.note}</span>
-                    </a>
-                  ))}
-              </div>
-
-              {/* The Ko-fi goal, read from Ko-fi itself — see scripts/sync-goal.mjs */}
-              <div className="support-goal">
-                <div className="support-goal-head">
-                  <span className="support-goal-title">{supportGoal.title}</span>
-                  <span className="support-goal-note">
-                    Live from Ko-fi · read {formatDay(supportGoal.updatedAt)}
-                  </span>
-                </div>
-                <div
-                  className="support-goal-bar"
-                  role="progressbar"
-                  aria-valuenow={supportGoal.percent}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-valuetext={`${supportGoal.percent}% of the ${supportGoal.currency}${supportGoal.target} goal`}
-                >
-                  <span style={{ width: `${supportGoal.percent}%` }} />
-                </div>
-                <div className="support-goal-foot">
-                  <span>
-                    <strong>{supportGoal.percent}%</strong> of the {supportGoal.currency}
-                    {supportGoal.target} goal reached — every percent goes toward the hosted
-                    models that are free inside Zeqou Harness.
-                  </span>
-                  <a
-                    className="arrow-link"
-                    href={site.supportGoalUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    See the goal on Ko-fi <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <SupportSection />
 
       {/* GitHub */}
       <section className="section" aria-labelledby="github-title">

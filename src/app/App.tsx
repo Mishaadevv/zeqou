@@ -9,10 +9,22 @@ import { notFoundMeta, routes } from '../routes';
 import { ThemeProvider } from '../theme/ThemeContext';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
+    // A link like /downloads#installer-warnings has to land on the section, not
+    // at the top of the page — including on a fresh load of the prerendered
+    // HTML, where the browser would otherwise restore the hash position itself.
+    if (hash) {
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'instant' as ScrollBehavior, block: 'start' });
+        return;
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-  }, [pathname]);
+  }, [pathname, hash]);
+
   return null;
 }
 
