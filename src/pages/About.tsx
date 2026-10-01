@@ -1,15 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { site } from '../config/site';
 
 export function About() {
   return (
     <div className="page">
-      <SEO
-        title="About — Zeqou"
-        description="Zeqou is an independent software ecosystem focused on building useful, modern applications."
-      />
       <div className="container">
         <div className="page-hero">
           <p className="label">About</p>

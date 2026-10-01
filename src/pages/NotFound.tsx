@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-import { SEO } from '../components/SEO';
 
 export function NotFound() {
   return (
     <div className="page">
-      <SEO title="Page not found — Zeqou" description="The page you requested does not exist." />
       <div className="container not-found">
         <h1>Nothing here.</h1>
         <p>The page you requested does not exist or has moved.</p>

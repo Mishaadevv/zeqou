@@ -5,12 +5,12 @@ import { LogoParticles } from '../components/LogoParticles';
 import { ParticleField } from '../components/ParticleField';
 import { ProductBlock } from '../components/ProductBlock';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { Shot } from '../components/Shot';
 import { TrainingMock } from '../components/TrainingMock';
 import { getProduct } from '../config/products';
 import { site } from '../config/site';
 import { supportGoal } from '../data/support';
+import { asset } from '../lib/paths';
 import { updates } from '../data/updates';
 
 const months = [
@@ -58,10 +58,6 @@ export function Home() {
 
   return (
     <>
-      <SEO
-        title="Zeqou — Software, built as an ecosystem."
-        description={site.description}
-      />
 
       {/* Hero */}
       <section className="hero" aria-labelledby="hero-title">
@@ -122,7 +118,7 @@ export function Home() {
                 natural
                 preview={
                   <Shot
-                    src="./assets/apps/xchat/chat.png"
+                    src={asset('assets/apps/xchat/chat.png')}
                     alt="ZeqouXChat chat window with a conversation and message input"
                   />
                 }

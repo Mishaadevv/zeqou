@@ -3,43 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zeqou — Software, built as an ecosystem.</title>
-    <meta
-      name="description"
-      content="One service. Many apps. Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together. Free for Windows, macOS and Linux."
-    />
     <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 
-    <!-- Canonical: replace with the production domain after deployment. -->
-    <!-- <link rel="canonical" href="https://zeqou.github.io/" /> -->
-
-    <!-- Favicons: Zeqou X brand mark -->
-    <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png" />
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link rel="manifest" href="./manifest.webmanifest" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Zeqou" />
-    <meta property="og:title" content="Zeqou — Software, built as an ecosystem." />
+    <!--
+      Page head. The tags below are the defaults the dev server serves; the
+      build replaces this whole block with the head of each route (see
+      scripts/prerender.mjs and src/lib/head.ts). data-seo marks the tags the
+      SEO component owns, so a page change in the browser replaces them instead
+      of adding a second copy.
+    -->
+    <!--head:start-->
+    <title data-seo>Zeqou — Software, built as an ecosystem.</title>
     <meta
+      data-seo
+      name="description"
+      content="One service. Many apps. Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together. Free for Windows, macOS and Linux."
+    />
+    <link data-seo rel="canonical" href="%BASE_URL%" />
+    <meta data-seo property="og:type" content="website" />
+    <meta data-seo property="og:site_name" content="Zeqou" />
+    <meta data-seo property="og:title" content="Zeqou — Software, built as an ecosystem." />
+    <meta
+      data-seo
       property="og:description"
       content="One service. Many apps. Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together. Free for Windows, macOS and Linux."
     />
-    <meta property="og:image" content="./og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Zeqou X brand mark with the word ZEQOU" />
-
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zeqou — Software, built as an ecosystem." />
+    <meta data-seo property="og:url" content="%BASE_URL%" />
+    <meta data-seo property="og:image" content="%BASE_URL%og.png" />
+    <meta data-seo property="og:image:width" content="1200" />
+    <meta data-seo property="og:image:height" content="630" />
+    <meta data-seo name="twitter:card" content="summary_large_image" />
+    <meta data-seo name="twitter:title" content="Zeqou — Software, built as an ecosystem." />
     <meta
+      data-seo
       name="twitter:description"
       content="One service. Many apps. Zeqou is a growing collection of focused applications designed to work beautifully on their own — and together. Free for Windows, macOS and Linux."
     />
-    <meta name="twitter:image" content="./og.png" />
+    <meta data-seo name="twitter:image" content="%BASE_URL%og.png" />
+    <!--head:end-->
+
+    <!-- Favicons: Zeqou X brand mark -->
+    <link rel="icon" type="image/png" sizes="64x64" href="%BASE_URL%favicon.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
 
     <meta
       name="keywords"
@@ -51,7 +58,8 @@
       Analytics: Umami — cookie-free, no personal data, nothing visible on the
       page. Restricted to the production host, so local development, previews
       and the deploy runner's checks never send a visit. Update data-domains if
-      the site ever moves to a custom domain.
+      the site ever moves to a custom domain. Page changes are reported by the
+      tracker itself; nothing in src/ calls it.
     -->
     <script
       defer
@@ -61,8 +69,27 @@
       data-do-not-track="true"
     ></script>
 
-    <!-- Set the theme before first paint to avoid a flash. Mirrors ThemeContext logic. -->
+    <!--
+      Before first paint: mark that scripts are running (the scroll-in animation
+      only hides content when JavaScript can reveal it again), rewrite links
+      that still use the old hash routes, and set the theme. Mirrors
+      ThemeContext logic.
+    -->
     <script>
+      document.documentElement.classList.add('js');
+
+      try {
+        if (window.location.hash.indexOf('#/') === 0) {
+          // #/apps/harness was the URL before the site gained real paths.
+          var base = window.location.pathname.replace(/index\.html$/, '');
+          window.history.replaceState(
+            null,
+            '',
+            base + window.location.hash.slice(2) + window.location.search,
+          );
+        }
+      } catch (e) {}
+
       try {
         var zeqouTheme = localStorage.getItem('zeqou-theme');
         if (zeqouTheme !== 'dark' && zeqouTheme !== 'light') {

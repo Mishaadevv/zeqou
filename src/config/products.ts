@@ -10,6 +10,7 @@
  */
 
 import { versions } from '../data/versions';
+import { asset } from '../lib/paths';
 
 export type ProductStatus = 'available' | 'coming-soon';
 
@@ -31,11 +32,11 @@ export interface Product {
   version: string;
   /** Platforms with an official download. */
   platforms: string[];
-  /** Relative path to the product icon in public/. */
+  /** Icon URL (public/assets/...), built so it survives any route depth. */
   icon: string;
-  /** Relative paths to screenshots in public/. Empty until shipped. */
+  /** Screenshot URLs (public/assets/...). Empty until shipped. */
   screenshots: string[];
-  /** Relative path to the promo video in public/, if one exists. */
+  /** Promo video URL (public/assets/...), if one exists. */
   video?: string;
   /** Optional second video, shown as an extra preview on the product page. */
   videoSecondary?: string;
@@ -60,10 +61,10 @@ export const products: Product[] = [
     status: 'available',
     version: versions.harness,
     platforms: ['Windows', 'macOS', 'Linux'],
-    icon: './assets/apps/harness/icon.png',
+    icon: asset('assets/apps/harness/icon.png'),
     screenshots: [],
-    video: './assets/videos/harness.mp4',
-    videoSecondary: './assets/videos/harness-extra.mp4',
+    video: asset('assets/videos/harness.mp4'),
+    videoSecondary: asset('assets/videos/harness-extra.mp4'),
     downloadUrl: 'https://github.com/Mishaadevv/harness/releases',
     githubUrl: 'https://github.com/Mishaadevv/harness',
     docsUrl: 'https://github.com/Mishaadevv/harness#readme',
@@ -82,11 +83,11 @@ export const products: Product[] = [
     status: 'available',
     version: versions.xchat,
     platforms: ['Windows', 'macOS', 'Linux'],
-    icon: './assets/apps/xchat/icon.png',
+    icon: asset('assets/apps/xchat/icon.png'),
     screenshots: [
-      './assets/apps/xchat/chat.png',
-      './assets/apps/xchat/workspace.png',
-      './assets/apps/xchat/hub.png',
+      asset('assets/apps/xchat/chat.png'),
+      asset('assets/apps/xchat/workspace.png'),
+      asset('assets/apps/xchat/hub.png'),
     ],
     downloadUrl: 'https://github.com/Mishaadevv/xchat/releases',
     githubUrl: 'https://github.com/Mishaadevv/xchat',
@@ -124,7 +125,7 @@ export const products: Product[] = [
     status: 'available',
     version: versions.xtraining,
     platforms: ['Windows', 'macOS', 'Linux'],
-    icon: './assets/apps/xtraining/icon.png',
+    icon: asset('assets/apps/xtraining/icon.png'),
     screenshots: [],
     downloadUrl: 'https://github.com/Mishaadevv/xtraining/releases/tag/v2.0.0',
     githubUrl: 'https://github.com/Mishaadevv/xtraining',

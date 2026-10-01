@@ -50,7 +50,7 @@ export const docs: DocPage[] = [
         heading: 'What is Zeqou?',
         paragraphs: [
           'Zeqou is an independent software ecosystem built and maintained by MihaDev (GitHub: Mishaadevv). Different applications, one standard: each product solves one problem well, works standalone, and belongs to one connected family.',
-          'The public hub is https://mishaadevv.github.io/zeqou/ — this site. Source: https://github.com/Mishaadevv/zeqou. It is a static React + TypeScript + Vite build with hash routing, deployed to GitHub Pages via GitHub Actions.',
+          'The public hub is https://mishaadevv.github.io/zeqou/ — this site. Source: https://github.com/Mishaadevv/zeqou. It is a static React + TypeScript + Vite build: every page is prerendered to HTML at build time and published to GitHub Pages via GitHub Actions.',
         ],
       },
       {
@@ -100,7 +100,7 @@ export const docs: DocPage[] = [
         heading: 'What it is',
         paragraphs: [
           'Zeqou Harness (repo: harness, package: zeqou-harness, appId ai.zeqou.harness) is the agent and model workspace of the ecosystem. Local-first Electron desktop app for Windows, macOS and Linux.',
-          'Part of the Zeqou ecosystem: https://mishaadevv.github.io/zeqou/#/apps/harness. License: PolyForm Strict 1.0.0 — viewing and personal use allowed, copying / modification / redistribution need permission.',
+          'Part of the Zeqou ecosystem: https://mishaadevv.github.io/zeqou/apps/harness/. License: PolyForm Strict 1.0.0 — viewing and personal use allowed, copying / modification / redistribution need permission.',
         ],
       },
       {
@@ -323,7 +323,7 @@ export const docs: DocPage[] = [
     label: 'Website',
     title: 'Zeqou website docs',
     description:
-      'This site. React + TypeScript + Vite, hash routing, zero CSS deps, auto-deploy to GitHub Pages.',
+      'This site. React + TypeScript + Vite, prerendered pages, zero CSS deps, auto-deploy to GitHub Pages.',
     githubUrl: 'https://github.com/Mishaadevv/zeqou',
     websiteRoute: '/',
     version: versions.zeqou,
@@ -333,7 +333,9 @@ export const docs: DocPage[] = [
         heading: 'What it is',
         paragraphs: [
           'Repo zeqou is the central hub: Home, Apps catalogue, product pages (Harness / XChat / XTraining), Updates feed, About — and now Docs. English-only, dark-first, static build.',
-          'Live at https://mishaadevv.github.io/zeqou/. Deploy: push to main → .github/workflows/deploy.yml builds dist/ → GitHub Pages (source: GitHub Actions). vite.config.ts uses base: \'./\' so relative assets work on user and project sites.',
+          'Live at https://mishaadevv.github.io/zeqou/. Deploy: push to main → .github/workflows/deploy.yml builds dist/ → GitHub Pages (source: GitHub Actions).',
+          'Pages use real paths (/apps/harness), not hash routes, and none of them depend on the browser: scripts/prerender.mjs renders every route in src/routes.tsx with react-dom/server into dist/<route>/index.html, with that page\'s own title, description, canonical URL, Open Graph tags and — on application pages — a JSON-LD SoftwareApplication entry. GitHub Pages serves files, not rewrites, so a page that only existed after JavaScript had run would be a page a crawler could miss; 404.html carries the not-found page for everything else, and sitemap.xml and robots.txt are written from the same build.',
+          'Where the site is served from lives in two environment variables: BASE_PATH (/zeqou/ today, / after a domain) and SITE_URL. Set them in the deploy workflow; locally they default to the GitHub Pages values.',
         ],
       },
       {
@@ -346,7 +348,7 @@ export const docs: DocPage[] = [
       },
       {
         heading: 'Add a new application',
-        paragraphs: ['Edit one file — src/config/products.ts — and append an entry. Home, Apps, footer and updates pick it up automatically. For a full page add src/pages/Next.tsx + route /apps/next in src/app/App.tsx.'],
+        paragraphs: [          'Edit one file — src/config/products.ts — and append an entry. Home, Apps, footer and updates pick it up automatically. For a full page add src/pages/Next.tsx and an entry in src/routes.tsx; the prerender step, the page head and the sitemap follow from that one entry.'],
         code: {
           lang: 'ts',
           code: "{\n  name: 'Zeqou Next',\n  slug: 'next',\n  status: 'coming-soon',\n  version: '0.1',\n  // ...\n}",

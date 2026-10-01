@@ -7,7 +7,7 @@ English-only. Dark-first. Static build, ready for GitHub Pages.
 ## Stack
 
 - React + TypeScript + Vite
-- Hash routing (`/#/apps/harness`) — works on GitHub Pages user sites and project sites with no server rewrites
+- Real paths (`/apps/harness`), prerendered to static HTML at build time
 - Zero CSS dependencies, hand-built design system in `src/styles/global.css`
 
 ## Develop
@@ -24,12 +24,46 @@ npm run build
 npm run preview
 ```
 
+`npm run build` checks the product versions, typechecks, builds the client bundle, builds
+`src/entry-server.tsx` for Node, and then prerenders: every route in `src/routes.tsx` becomes
+`dist/<route>/index.html` with its own head, plus `404.html`, `sitemap.xml` and `robots.txt`.
+
+## Routing, prerendering and search
+
+- The route table is `src/routes.tsx`: path, page and head data in one entry. The router renders
+  it, and `scripts/prerender.mjs` walks it, so adding a page adds its static HTML, its head and
+  its sitemap entry at the same time.
+- Head tags (title, description, canonical, Open Graph, Twitter, JSON-LD, noindex) come from
+  `src/lib/head.ts`. The browser component writes that list into `document.head`; the build step
+  writes the same list into the HTML. One list, so a crawler and a visitor see the same page.
+- `404.html` is the not-found page, and GitHub Pages serves it for any unknown path.
+- Assets in `public/` are addressed through `asset()` in `src/lib/paths.ts`, which prefixes the
+  deployment base — `/zeqou/` today, `/` after a domain. Under a source path like `./assets/…` a
+  page at `/apps/harness/` would look for its icons in the wrong directory.
+
+## Where the site is served from
+
+Two environment variables, read by `vite.config.ts`, `src/lib/paths.ts` and the prerender step:
+
+- `BASE_PATH` — the path the site lives under: `/zeqou/` now, `/` after the move to a domain.
+- `SITE_URL` — the absolute root: `https://mishaadevv.github.io/zeqou/` now. Canonical URLs,
+  `og:url`, `og:image`, `sitemap.xml` and `robots.txt` are built from it.
+
+The deploy workflow sets both, and they default to the GitHub Pages values, so a local build needs
+nothing. A domain move is a change of those two values in `.github/workflows/deploy.yml` — and of
+`data-domains` on the analytics tag, which is scoped to the production host.
+
+Note: `robots.txt` is only authoritative at the root of a *host*. While the site lives under
+`/zeqou/`, submit `https://mishaadevv.github.io/zeqou/sitemap.xml` in the search console by hand;
+the generated file starts working on its own once the site has its own domain.
+
 ## Deploy to GitHub Pages
 
 1. Push to the `main` branch — `.github/workflows/deploy.yml` builds and publishes `dist/` automatically.
 2. In the repository go to **Settings → Pages** and select **GitHub Actions** as the source.
 
-No `base` changes are needed: `vite.config.ts` uses `base: './'`, so relative asset URLs work on both `username.github.io` and `username.github.io/repo/`.
+The site is served from `/zeqou/` today: the workflow passes `BASE_PATH` and `SITE_URL`, and asset
+URLs, prerendered links, canonical URLs and the sitemap are all built from them.
 
 ## Add a new application
 
@@ -54,7 +88,8 @@ Edit one file — `src/config/products.ts` — and append an entry:
 ```
 
 The home page, Apps catalogue, footer and updates feed pick it up automatically.
-For a full product page, add `src/pages/Next.tsx` and a `/apps/next` route in `src/app/App.tsx`.
+For a full product page, add `src/pages/Next.tsx` and an entry in `src/routes.tsx` — that one entry
+gives it a route, a prerendered HTML file, its own head and a sitemap entry.
 
 Product previews live in `previewFor` in `src/pages/Apps.tsx`: a real screenshot or promo video
 where one exists, and `src/components/TrainingMock.tsx` (a CSS mock) where none does yet.
@@ -87,8 +122,8 @@ percent, and the date it was read.
 Umami (cloud.umami.is) is loaded from `index.html`: cookie-free, no personal data, and invisible
 on the page. The tag is scoped with `data-domains` to the production host, so local development
 and previews are never counted, and `data-do-not-track` keeps visitors who ask not to be tracked
-out of the numbers entirely. Hash routes (`#/apps/harness`) are tracked as separate pages by the
-tracker itself — nothing in `src/` calls it.
+out of the numbers entirely. Route changes are reported as page views by the tracker itself, which
+watches the history API — nothing in `src/` calls it.
 
 ## Brand assets
 

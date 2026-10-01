@@ -1428,12 +1428,17 @@ a.eco-child:hover {
 }
 
 /* Reveal */
+/* Hidden only while a script is there to reveal it again: every page is also
+   served as static HTML, and that copy has to read with JavaScript off. */
 .reveal {
-  opacity: 0;
-  transform: translateY(26px);
   transition:
     opacity 0.8s var(--ease),
     transform 0.8s var(--ease);
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
 }
 
 .reveal.is-visible {
@@ -1606,7 +1611,8 @@ a.eco-child:hover {
     transition-duration: 0.01ms !important;
   }
 
-  .reveal {
+  .reveal,
+  .js .reveal {
     opacity: 1;
     transform: none;
   }

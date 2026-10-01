@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { asset } from '../lib/paths';
 
 interface Particle {
   hx: number;
@@ -186,7 +187,7 @@ export function LogoParticles() {
       }
     };
     img.onerror = () => setFailed(true);
-    img.src = './assets/branding/zeqou-x.png';
+    img.src = asset('assets/branding/zeqou-x.png');
 
     const themeObserver = new MutationObserver(() => {
       const s = getComputedStyle(document.documentElement);
@@ -208,7 +209,7 @@ export function LogoParticles() {
   if (failed) {
     return (
       <img
-        src="./assets/branding/zeqou-x.png"
+        src={asset('assets/branding/zeqou-x.png')}
         alt="Zeqou X brand mark"
         width={400}
         height={400}

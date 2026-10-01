@@ -1,16 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { docs } from '../data/docs';
 
 /** Docs catalogue: every Zeqou product + ecosystem overview. */
 export function Docs() {
   return (
     <div className="page">
-      <SEO
-        title="Docs — Zeqou"
-        description="Documentation for the Zeqou ecosystem: Harness, XChat, XTraining and the website itself."
-      />
       <div className="container">
         <div className="page-hero">
           <p className="label">Documentation</p>

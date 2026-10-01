@@ -1,3 +1,5 @@
+import { asset } from '../lib/paths';
+
 const steps = ['Model', 'Dataset', 'Method', 'Settings', 'Check', 'Train', 'Result'];
 
 /** Rendered, not faked: no real screenshots exist yet, so the preview is a CSS mock. */
@@ -9,7 +11,7 @@ export function TrainingMock() {
         <span className="mock-dot" />
         <span className="mock-dot" />
         <span className="mock-name">
-          <img src="./assets/apps/xtraining/icon.png" alt="" width={20} height={20} />
+          <img src={asset('assets/apps/xtraining/icon.png')} alt="" width={20} height={20} />
           <span className="mock-title">zeqouxtraining — run qwen2.5-0.5b-lora</span>
         </span>
       </div>

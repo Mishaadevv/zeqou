@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { Shot } from '../components/Shot';
 import { getProduct } from '../config/products';
+import { asset } from '../lib/paths';
 
 export function XChat() {
   const product = getProduct('xchat');
@@ -17,10 +17,6 @@ export function XChat() {
 
   return (
     <div className="page">
-      <SEO
-        title="ZeqouXChat — Zeqou"
-        description="A desktop AI chat application built around modern AI providers and developer workflows."
-      />
       <div className="container">
         <div className="app-hero">
           <div>
@@ -68,7 +64,7 @@ export function XChat() {
           <div className="product-preview">
             <div className="preview-frame natural">
               <Shot
-                src="./assets/apps/xchat/chat.png"
+                src={asset('assets/apps/xchat/chat.png')}
                 alt="ZeqouXChat chat window with a conversation and message input"
               />
             </div>
@@ -104,7 +100,7 @@ export function XChat() {
               <div className="product-preview">
                 <div className="preview-frame natural">
                   <Shot
-                    src="./assets/apps/xchat/hub.png"
+                    src={asset('assets/apps/xchat/hub.png')}
                     alt="ZeqouXChat provider Hub listing AI providers and models"
                   />
                 </div>
@@ -132,7 +128,7 @@ export function XChat() {
               <div className="product-preview">
                 <div className="preview-frame natural">
                   <Shot
-                    src="./assets/apps/xchat/workspace.png"
+                    src={asset('assets/apps/xchat/workspace.png')}
                     alt="ZeqouXChat workspace with navigation sidebar and chat"
                   />
                 </div>

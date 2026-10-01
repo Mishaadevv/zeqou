@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import { asset } from '../lib/paths';
 
 /** Thin ecosystem diagram: ZEQOU with quiet lines to each product. */
 export function Ecosystem() {
   return (
     <div className="eco">
       <span className="eco-mark">
-        <img src="./assets/branding/zeqou-x.png" alt="" width={52} height={52} loading="lazy" />
+        <img src={asset('assets/branding/zeqou-x.png')} alt="" width={52} height={52} loading="lazy" />
         ZEQOU
       </span>
       <div className="eco-wire" aria-hidden="true" />

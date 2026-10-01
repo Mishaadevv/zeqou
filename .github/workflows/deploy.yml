@@ -21,6 +21,13 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Where the site is served from. A move to its own domain is a change of
+      # these two values (BASE_PATH: / , SITE_URL: https://…/) and nothing else:
+      # vite.config.ts derives the asset base from them, and the prerender step
+      # writes canonical URLs, the sitemap and robots.txt from them.
+      BASE_PATH: /zeqou/
+      SITE_URL: https://mishaadevv.github.io/zeqou/
     steps:
       - name: Checkout
         uses: actions/checkout@v4

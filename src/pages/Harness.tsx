@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { HarnessPreview } from '../components/HarnessPreview';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { getProduct } from '../config/products';
 
 export function Harness() {
@@ -17,10 +16,6 @@ export function Harness() {
 
   return (
     <div className="page">
-      <SEO
-        title="Zeqou Harness — Zeqou"
-        description="An AI workspace for developers, agents, models, tools, memory and MCP."
-      />
       <div className="container">
         <div className="app-hero">
           <div>

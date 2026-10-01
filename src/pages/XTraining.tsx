@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { TrainingMock } from '../components/TrainingMock';
 import { getProduct } from '../config/products';
 
@@ -17,10 +16,6 @@ export function XTraining() {
 
   return (
     <div className="page">
-      <SEO
-        title="ZeqouXTraining — Zeqou"
-        description="A local-first desktop studio for training, fine-tuning, evaluating and serving AI models on your own hardware."
-      />
       <div className="container">
         <div className="app-hero">
           <div>

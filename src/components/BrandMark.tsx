@@ -1,3 +1,5 @@
+import { asset } from '../lib/paths';
+
 interface BrandMarkProps {
   size?: number;
   radius?: number;
@@ -7,7 +9,7 @@ interface BrandMarkProps {
 export function BrandMark({ size = 32, radius = 9 }: BrandMarkProps) {
   return (
     <img
-      src="./assets/branding/zeqou-x.png"
+      src={asset('assets/branding/zeqou-x.png')}
       alt="Zeqou X logo"
       width={size}
       height={size}

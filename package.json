@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run versions:check && tsc && vite build",
+    "build": "npm run versions:check && tsc && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview",
     "versions": "node scripts/sync-versions.mjs",
     "versions:check": "node scripts/sync-versions.mjs --check",

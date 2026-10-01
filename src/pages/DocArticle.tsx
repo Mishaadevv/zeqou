@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { docs, getDoc } from '../data/docs';
 import { NotFound } from './NotFound';
 
@@ -15,7 +14,6 @@ export function DocArticle() {
 
   return (
     <div className="page">
-      <SEO title={`${doc.title} — Zeqou Docs`} description={doc.description} />
       <div className="container docs-layout">
         <aside className="docs-side" aria-label="Documentation navigation">
           <p className="label">Docs</p>

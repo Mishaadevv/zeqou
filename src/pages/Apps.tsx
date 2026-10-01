@@ -4,11 +4,11 @@ import { DotWave } from '../components/DotWave';
 import { HarnessPreview } from '../components/HarnessPreview';
 import { ProductBlock } from '../components/ProductBlock';
 import { Reveal } from '../components/Reveal';
-import { SEO } from '../components/SEO';
 import { Shot } from '../components/Shot';
 import { TrainingMock } from '../components/TrainingMock';
 import type { Product } from '../config/products';
 import { products } from '../config/products';
+import { asset } from '../lib/paths';
 
 type Filter = 'all' | 'available' | 'coming-soon';
 
@@ -33,7 +33,7 @@ function previewFor(product: Product): { preview: ReactNode; caption: string; na
   return {
     preview: (
       <Shot
-        src="./assets/apps/xchat/chat.png"
+        src={asset('assets/apps/xchat/chat.png')}
         alt="ZeqouXChat chat window with a conversation and message input"
       />
     ),
@@ -56,10 +56,6 @@ export function Apps() {
 
   return (
     <div className="page">
-      <SEO
-        title="Apps — Zeqou"
-        description="Every application in the Zeqou ecosystem: Harness, XChat, XTraining and upcoming tools."
-      />
       <div className="container">
         <div className="page-hero page-hero-with-wave">
           <DotWave />
