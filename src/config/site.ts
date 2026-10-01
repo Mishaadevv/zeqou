@@ -25,4 +25,21 @@ export const site = {
     { label: 'Updates', to: '/updates' },
     { label: 'GitHub', href: 'https://github.com/Mishaadevv' },
   ],
+
+  /**
+   * Ways to support development. Every app stays free to download, so these
+   * are optional one-off contributions — never a licence or a subscription.
+   */
+  support: [
+    {
+      label: 'Ko-fi',
+      href: 'https://ko-fi.com/donatetomishaadevv/goal?g=0',
+      note: 'One-off tip by card. No account required.',
+    },
+    {
+      label: 'Revolut',
+      href: 'https://revolut.me/mykhai_y7_cco3',
+      note: 'Direct transfer from your Revolut app.',
+    },
+  ],
 } as const;

@@ -186,6 +186,45 @@ export function Home() {
         </div>
       </section>
 
+      {/* Support */}
+      <section className="section" aria-labelledby="support-title">
+        <div className="container">
+          <Reveal>
+            <div className="support-block">
+              <div className="support-copy">
+                <p className="label">Support</p>
+                <h2 id="support-title">Keep it free for everyone.</h2>
+                <p>
+                  Zeqou is written and maintained by one developer. No ads, no accounts, no paid
+                  tier — every app is free to download and update. If the ecosystem is useful to
+                  you, a one-off contribution pays for the builds, the signing keys and the
+                  machines behind it.
+                </p>
+              </div>
+              <div className="support-options">
+                {site.support.map((option) => (
+                  <a
+                    key={option.label}
+                    className="support-option"
+                    href={option.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="support-option-label">
+                      {option.label}
+                      <span className="arrow" aria-hidden="true">
+                        →
+                      </span>
+                    </span>
+                    <span className="support-option-note">{option.note}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* GitHub */}
       <section className="section" aria-labelledby="github-title">
         <div className="container">
