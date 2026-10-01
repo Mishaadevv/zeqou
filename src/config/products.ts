@@ -14,6 +14,16 @@ import { asset } from '../lib/paths';
 
 export type ProductStatus = 'available' | 'coming-soon';
 
+/** A real screenshot, with the text it needs to stand on a page. */
+export interface ProductScreenshot {
+  /** Image URL (public/assets/...), built so it survives any route depth. */
+  src: string;
+  /** What the image shows, for anyone who cannot see it. */
+  alt: string;
+  /** Short line under the image on a product page. */
+  caption?: string;
+}
+
 export interface Product {
   /** Full product name, e.g. "Zeqou Harness". */
   name: string;
@@ -34,8 +44,11 @@ export interface Product {
   platforms: string[];
   /** Icon URL (public/assets/...), built so it survives any route depth. */
   icon: string;
-  /** Screenshot URLs (public/assets/...). Empty until shipped. */
-  screenshots: string[];
+  /**
+   * Real screenshots, in the order a page should show them. Empty until they
+   * exist — never a mock dressed up as one.
+   */
+  screenshots: ProductScreenshot[];
   /** Promo video URL (public/assets/...), if one exists. */
   video?: string;
   /** Optional second video, shown as an extra preview on the product page. */
@@ -62,7 +75,28 @@ export const products: Product[] = [
     version: versions.harness,
     platforms: ['Windows', 'macOS', 'Linux'],
     icon: asset('assets/apps/harness/icon.png'),
-    screenshots: [],
+    screenshots: [
+      {
+        src: asset('assets/apps/harness/chat.png'),
+        alt: 'Zeqou Harness chat view as a new install opens it, with the conversation area and composer',
+        caption: 'Chat, as a new install opens it',
+      },
+      {
+        src: asset('assets/apps/harness/tools.png'),
+        alt: 'The Tools view listing the built-in tools that ship with Zeqou Harness',
+        caption: 'The tools that ship with the app',
+      },
+      {
+        src: asset('assets/apps/harness/mcp-server.png'),
+        alt: 'Adding an MCP server in Zeqou Harness: name, transport, URL or command',
+        caption: 'Adding an MCP server — name, transport, address',
+      },
+      {
+        src: asset('assets/apps/harness/providers.png'),
+        alt: 'Settings, Providers: the provider list with its note that keys never leave the device',
+        caption: 'Providers — and where your keys are entered',
+      },
+    ],
     video: asset('assets/videos/harness.mp4'),
     videoSecondary: asset('assets/videos/harness-extra.mp4'),
     downloadUrl: 'https://github.com/Mishaadevv/harness/releases',
@@ -85,9 +119,18 @@ export const products: Product[] = [
     platforms: ['Windows', 'macOS', 'Linux'],
     icon: asset('assets/apps/xchat/icon.png'),
     screenshots: [
-      asset('assets/apps/xchat/chat.png'),
-      asset('assets/apps/xchat/workspace.png'),
-      asset('assets/apps/xchat/hub.png'),
+      {
+        src: asset('assets/apps/xchat/chat.png'),
+        alt: 'ZeqouXChat chat window with a conversation and message input',
+      },
+      {
+        src: asset('assets/apps/xchat/workspace.png'),
+        alt: 'ZeqouXChat workspace with navigation sidebar and chat',
+      },
+      {
+        src: asset('assets/apps/xchat/hub.png'),
+        alt: 'ZeqouXChat provider Hub listing AI providers and models',
+      },
     ],
     downloadUrl: 'https://github.com/Mishaadevv/xchat/releases',
     githubUrl: 'https://github.com/Mishaadevv/xchat',

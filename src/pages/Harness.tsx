@@ -121,8 +121,15 @@ export function Harness() {
             {product.screenshots.length > 0 ? (
               <div className="shot-grid">
                 {product.screenshots.map((screenshot) => (
-                  <figure className="shot-item" key={screenshot}>
-                    <img src={screenshot} alt={`${product.name} screenshot`} loading="lazy" />
+                  <figure className="shot-item" key={screenshot.src}>
+                    {/* The link is not decoration: it is how a reader gets the
+                        full-size image, since the page shows it small. */}
+                    <a href={screenshot.src} target="_blank" rel="noreferrer">
+                      <img src={screenshot.src} alt={screenshot.alt} loading="lazy" />
+                    </a>
+                    {screenshot.caption && (
+                      <figcaption className="shot-caption">{screenshot.caption}</figcaption>
+                    )}
                   </figure>
                 ))}
               </div>
