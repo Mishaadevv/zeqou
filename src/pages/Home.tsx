@@ -197,9 +197,20 @@ export function Home() {
                 <p>
                   Zeqou is written and maintained by one developer. No ads, no accounts, no paid
                   tier — every app is free to download and update. If the ecosystem is useful to
-                  you, a one-off contribution pays for the builds, the signing keys and the
-                  machines behind it.
+                  you, here is exactly what your money does.
                 </p>
+                <ul className="support-points">
+                  <li>
+                    <strong>Every donation goes back into the project.</strong> Nothing is
+                    taken out: contributions pay for the builds, the code-signing certificates,
+                    the servers and the model runtimes the apps depend on.
+                  </li>
+                  <li>
+                    <strong>More support means more free models in Zeqou Harness.</strong> The
+                    further the support goes, the wider the pool of AI models Harness ships and
+                    runs for free — the more you get to use without paying anyone.
+                  </li>
+                </ul>
               </div>
               <div className="support-options">
                 {site.support.map((option) => (

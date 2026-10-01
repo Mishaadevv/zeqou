@@ -1025,6 +1025,40 @@ a.eco-child:hover {
   max-width: 48ch;
 }
 
+.support-points {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 52ch;
+}
+
+.support-points li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.support-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-text);
+}
+
+.support-points strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .support-options {
   display: flex;
   flex-direction: column;
