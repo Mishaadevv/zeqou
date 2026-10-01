@@ -218,20 +218,22 @@ export function Home() {
                 <p className="label">Support</p>
                 <h2 id="support-title">Keep it free for everyone.</h2>
                 <p>
-                  Zeqou is written and maintained by one developer. No ads, no accounts, no paid
-                  tier — every app is free to download and update. If the ecosystem is useful to
-                  you, here is exactly what your money does.
+                  Zeqou is written and maintained by one developer, and every app is free to
+                  download and update. If the ecosystem is useful to you, here is where
+                  contributions go.
                 </p>
                 <ul className="support-points">
                   <li>
-                    <strong>Every donation goes back into the project.</strong> Nothing is
-                    taken out: contributions pay for the builds, the code-signing certificates,
-                    the servers and the model runtimes the apps depend on.
+                    <strong>Every donation goes back into the project.</strong> Contributions
+                    pay for the builds, the servers and the model runtimes the apps depend on.
                   </li>
                   <li>
-                    <strong>More support means more free models in Zeqou Harness.</strong> The
-                    further the support goes, the wider the pool of AI models Harness ships and
-                    runs for free — the more you get to use without paying anyone.
+                    <strong>
+                      Our goal is to use donations to pay for hosted AI models that are free
+                      inside Zeqou Harness.
+                    </strong>{' '}
+                    How far that pool grows depends on how far the support goes — no model is
+                    promised ahead of time.
                   </li>
                 </ul>
               </div>
@@ -278,8 +280,8 @@ export function Home() {
                 <div className="support-goal-foot">
                   <span>
                     <strong>{supportGoal.percent}%</strong> of the {supportGoal.currency}
-                    {supportGoal.target} goal reached — every percent widens the pool of free
-                    models in Zeqou Harness.
+                    {supportGoal.target} goal reached — every percent goes toward the hosted
+                    models that are free inside Zeqou Harness.
                   </span>
                   <a
                     className="arrow-link"

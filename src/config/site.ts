@@ -36,13 +36,13 @@ export const site = {
     {
       label: 'Ko-fi',
       href: 'https://ko-fi.com/donatetomishaadevv',
-      note: 'One-off tip by card. No account required.',
+      note: 'One-off tip by card.',
       enabled: true,
     },
     {
       label: 'Revolut',
       href: 'https://revolut.me/mykhai_y7_cco3',
-      note: 'Direct transfer from your Revolut app.',
+      note: 'Direct transfer via Revolut.',
       enabled: true,
     },
   ],
