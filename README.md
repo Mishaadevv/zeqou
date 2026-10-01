@@ -62,7 +62,7 @@ where one exists, and `src/components/TrainingMock.tsx` (a CSS mock) where none 
 ## Edit content without touching design
 
 - Products/downloads: `src/config/products.ts`
-- Global links/tagline — including the support links: `src/config/site.ts`
+- Global links/tagline — including the support links and their `enabled` flags: `src/config/site.ts`
 - Updates feed: `src/data/updates.ts`
 - Ko-fi goal: `src/data/support.ts` (generated — see below)
 
@@ -73,6 +73,9 @@ only place the goal is published is the public goal page. `npm run goal:sync` re
 and writes `src/data/support.ts`, which the Support section renders: title, currency, target,
 percent, and the date it was read.
 
+- The goal address lives once, in `supportGoalUrl` in `src/config/site.ts`; the script reads it
+  from there and the link under the progress bar uses the same constant. The Ko-fi support button
+  points at the main Ko-fi page instead, so a visitor landing there sees the whole profile.
 - `.github/workflows/deploy.yml` runs it before every build, and rebuilds daily at 05:17 UTC,
   so the progress bar moves without anyone pushing.
 - A page that cannot be read never blanks the site: the committed value is kept and the run

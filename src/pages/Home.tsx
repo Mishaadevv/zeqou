@@ -236,23 +236,25 @@ export function Home() {
                 </ul>
               </div>
               <div className="support-options">
-                {site.support.map((option) => (
-                  <a
-                    key={option.label}
-                    className="support-option"
-                    href={option.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span className="support-option-label">
-                      {option.label}
-                      <span className="arrow" aria-hidden="true">
-                        →
+                {site.support
+                  .filter((option) => option.enabled)
+                  .map((option) => (
+                    <a
+                      key={option.label}
+                      className="support-option"
+                      href={option.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="support-option-label">
+                        {option.label}
+                        <span className="arrow" aria-hidden="true">
+                          →
+                        </span>
                       </span>
-                    </span>
-                    <span className="support-option-note">{option.note}</span>
-                  </a>
-                ))}
+                      <span className="support-option-note">{option.note}</span>
+                    </a>
+                  ))}
               </div>
 
               {/* The Ko-fi goal, read from Ko-fi itself — see scripts/sync-goal.mjs */}
@@ -281,7 +283,7 @@ export function Home() {
                   </span>
                   <a
                     className="arrow-link"
-                    href={supportGoal.url}
+                    href={site.supportGoalUrl}
                     target="_blank"
                     rel="noreferrer"
                   >

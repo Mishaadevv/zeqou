@@ -29,17 +29,28 @@ export const site = {
   /**
    * Ways to support development. Every app stays free to download, so these
    * are optional one-off contributions — never a licence or a subscription.
+   * Flip `enabled` to false to hide a method from the site without deleting
+   * it; the Support section renders only the enabled ones.
    */
   support: [
     {
       label: 'Ko-fi',
-      href: 'https://ko-fi.com/donatetomishaadevv/goal?g=0',
+      href: 'https://ko-fi.com/donatetomishaadevv',
       note: 'One-off tip by card. No account required.',
+      enabled: true,
     },
     {
       label: 'Revolut',
       href: 'https://revolut.me/mykhai_y7_cco3',
       note: 'Direct transfer from your Revolut app.',
+      enabled: true,
     },
   ],
+
+  /**
+   * The public Ko-fi goal page. scripts/sync-goal.mjs reads it back out of
+   * this file, so the address is typed once, and the progress bar on the home
+   * page links to it.
+   */
+  supportGoalUrl: 'https://ko-fi.com/donatetomishaadevv/goal?g=0',
 } as const;

@@ -34,14 +34,15 @@ const userAgent =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 /**
- * The goal page is the Ko-fi link the site already publishes, so the link is
- * never typed twice — it is read back out of the site config.
+ * The goal page is published in the site config, so the address is typed once:
+ * it is read back out of site.ts, and the progress bar links to the same
+ * constant. The support buttons point at the main Ko-fi page, not the goal.
  */
 async function goalUrl() {
   const source = await readFile(configFile, 'utf8');
-  const match = source.match(/href:\s*'(https:\/\/ko-fi\.com\/[^']+)'/);
+  const match = source.match(/supportGoalUrl:\s*'(https:\/\/ko-fi\.com\/[^']+)'/);
   if (!match) {
-    throw new Error(`no ko-fi.com link in ${path.relative(siteRoot, configFile)}`);
+    throw new Error(`no supportGoalUrl in ${path.relative(siteRoot, configFile)}`);
   }
   return match[1];
 }
