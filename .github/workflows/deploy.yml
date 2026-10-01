@@ -4,6 +4,10 @@ on:
   push:
     branches: ['main']
   workflow_dispatch:
+  # The Ko-fi goal is read from Ko-fi at build time, so a daily rebuild is
+  # what keeps the progress bar on the site current without anyone pushing.
+  schedule:
+    - cron: '17 5 * * *'
 
 permissions:
   contents: read
@@ -29,6 +33,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # Never fails the build: a goal page that cannot be read keeps the
+      # committed value and the date it was read is shown on the site.
+      - name: Read the Ko-fi goal
+        run: npm run goal:sync
 
       - name: Build
         run: npm run build

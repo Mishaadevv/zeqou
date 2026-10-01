@@ -1111,6 +1111,72 @@ a.eco-child:hover {
   font-size: 0.9rem;
 }
 
+/* The Ko-fi goal, read from Ko-fi itself */
+.support-goal {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  padding: 26px 28px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+.support-goal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.support-goal-title {
+  font-size: 1.08rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.support-goal-note {
+  color: var(--faint);
+  font-size: 0.82rem;
+}
+
+.support-goal-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+
+.support-goal-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-text));
+  transition: width 0.8s var(--ease);
+}
+
+.support-goal-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 28px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.support-goal-foot > span {
+  max-width: 62ch;
+}
+
+.support-goal-foot strong {
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+
 /* ── GitHub — one headline, one button ──── */
 .github-block {
   position: relative;

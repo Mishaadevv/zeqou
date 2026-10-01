@@ -9,7 +9,8 @@
     "build": "npm run versions:check && tsc && vite build",
     "preview": "vite preview",
     "versions": "node scripts/sync-versions.mjs",
-    "versions:check": "node scripts/sync-versions.mjs --check"
+    "versions:check": "node scripts/sync-versions.mjs --check",
+    "goal:sync": "node scripts/sync-goal.mjs"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

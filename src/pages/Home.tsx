@@ -10,7 +10,30 @@ import { Shot } from '../components/Shot';
 import { TrainingMock } from '../components/TrainingMock';
 import { getProduct } from '../config/products';
 import { site } from '../config/site';
+import { supportGoal } from '../data/support';
 import { updates } from '../data/updates';
+
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+/** ISO date to a readable day, without a timezone moving it to the day before. */
+function formatDay(iso: string) {
+  const [year, month, day] = iso.split('-').map(Number);
+  if (!year || !month || !day) return iso;
+  return `${day} ${months[month - 1]} ${year}`;
+}
 
 const principles = [
   {
@@ -230,6 +253,41 @@ export function Home() {
                     <span className="support-option-note">{option.note}</span>
                   </a>
                 ))}
+              </div>
+
+              {/* The Ko-fi goal, read from Ko-fi itself — see scripts/sync-goal.mjs */}
+              <div className="support-goal">
+                <div className="support-goal-head">
+                  <span className="support-goal-title">{supportGoal.title}</span>
+                  <span className="support-goal-note">
+                    Live from Ko-fi · read {formatDay(supportGoal.updatedAt)}
+                  </span>
+                </div>
+                <div
+                  className="support-goal-bar"
+                  role="progressbar"
+                  aria-valuenow={supportGoal.percent}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuetext={`${supportGoal.percent}% of the ${supportGoal.currency}${supportGoal.target} goal`}
+                >
+                  <span style={{ width: `${supportGoal.percent}%` }} />
+                </div>
+                <div className="support-goal-foot">
+                  <span>
+                    <strong>{supportGoal.percent}%</strong> of the {supportGoal.currency}
+                    {supportGoal.target} goal reached — every percent widens the pool of free
+                    models in Zeqou Harness.
+                  </span>
+                  <a
+                    className="arrow-link"
+                    href={supportGoal.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    See the goal on Ko-fi <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </Reveal>
