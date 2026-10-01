@@ -43,6 +43,22 @@ npm run preview
   deployment base — `/zeqou/` today, `/` after a domain. Under a source path like `./assets/…` a
   page at `/apps/harness/` would look for its icons in the wrong directory.
 
+## Keeping the copy honest
+
+Everything the site says about the applications is checked against their code, and these are the
+claims that have already been got wrong once:
+
+- MCP: Zeqou Harness is a client for MCP servers the user adds themselves — HTTP or stdio — and
+  bundles none. ZeqouXChat's tool panel runs a built-in set of local tools and does not connect to
+  external MCP servers. Neither statement may be softened into "MCP support" on its own.
+- Keys: cloud providers use the visitor's own API key (Harness encrypts it locally); local models
+  through Ollama or a built-in engine need no key. Nothing on the site promises a particular model,
+  a date, or that a feature will stay free.
+- Installers are unsigned, so the copy says so and never lists code-signing certificates among
+  what donations pay for.
+- Numbers that come from outside the site (versions, release files, SHA-256, the Ko-fi goal) are
+  read at build time by the scripts in `scripts/` and never typed in by hand.
+
 ## Where the site is served from
 
 Two environment variables, read by `vite.config.ts`, `src/lib/paths.ts` and the prerender step:

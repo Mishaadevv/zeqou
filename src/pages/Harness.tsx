@@ -46,9 +46,9 @@ export function Harness() {
               </span>
             </div>
             <div className="app-hero-cta">
-              <a href={product.downloadUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
+              <Link to="/downloads" className="btn btn-primary">
                 Download
-              </a>
+              </Link>
               <a href={product.githubUrl} className="btn btn-ghost" target="_blank" rel="noreferrer">
                 GitHub
               </a>
@@ -88,7 +88,11 @@ export function Harness() {
         <section className="app-section" aria-labelledby="harness-models">
           <Reveal>
             <h2 id="harness-models">Use the models you trust</h2>
-            <p>Connect the providers you already rely on and switch between them mid-task.</p>
+            <p>
+              Connect the providers you already rely on and switch between them mid-task. Cloud
+              providers take your own API key, which is encrypted locally and never sent anywhere
+              except to that provider; a local model through Ollama needs no key at all.
+            </p>
             <div className="caps">
               {product.providers.map((provider) => (
                 <span key={provider} className="cap">
@@ -96,6 +100,41 @@ export function Harness() {
                 </span>
               ))}
             </div>
+          </Reveal>
+        </section>
+
+        <section className="app-section" aria-labelledby="harness-mcp">
+          <Reveal>
+            <h2 id="harness-mcp">MCP servers you add yourself</h2>
+            <p>
+              Harness is an MCP client: you add the servers you want — over HTTP or as a local
+              command over stdio — connect them, and the tools each one publishes become tools the
+              model can call, named with the server they came from. No MCP servers are bundled
+              with the app, and none are connected until you add one.
+            </p>
+          </Reveal>
+        </section>
+
+        <section className="app-section" aria-labelledby="harness-screens">
+          <Reveal>
+            <h2 id="harness-screens">Screenshots</h2>
+            {product.screenshots.length > 0 ? (
+              <div className="shot-grid">
+                {product.screenshots.map((screenshot) => (
+                  <figure className="shot-item" key={screenshot}>
+                    <img src={screenshot} alt={`${product.name} screenshot`} loading="lazy" />
+                  </figure>
+                ))}
+              </div>
+            ) : (
+              <div className="shot-placeholder">
+                <p>Stills of the workspace are not published yet.</p>
+                <p className="shot-note">
+                  The video above is the current preview of the app; screenshots land here once
+                  they exist.
+                </p>
+              </div>
+            )}
           </Reveal>
         </section>
 
@@ -124,18 +163,13 @@ export function Harness() {
               <div>
                 <h2 id="harness-get">Get Harness</h2>
                 <p className="lead">
-                  Available for {product.platforms.join(', ')}. Free to try.
+                  Available for {product.platforms.join(', ')}. Free to download.
                 </p>
               </div>
               <div className="download-btns">
-                <a
-                  href={product.downloadUrl}
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <Link to="/downloads" className="btn btn-primary">
                   Download
-                </a>
+                </Link>
                 <a
                   href={product.downloadUrl}
                   className="btn btn-ghost"

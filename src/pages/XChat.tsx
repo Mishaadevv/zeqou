@@ -47,9 +47,9 @@ export function XChat() {
               </span>
             </div>
             <div className="app-hero-cta">
-              <a href={product.downloadUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
+              <Link to="/downloads" className="btn btn-primary">
                 Download
-              </a>
+              </Link>
               <a href={product.githubUrl} className="btn btn-ghost" target="_blank" rel="noreferrer">
                 GitHub
               </a>
@@ -89,12 +89,29 @@ export function XChat() {
           </Reveal>
         </section>
 
+        <section className="app-section" aria-labelledby="xchat-tools">
+          <Reveal>
+            <h2 id="xchat-tools">Tools that run on your machine</h2>
+            <p>
+              XChat can offer the model a set of local tools and run them itself: reading and
+              writing files, searching a project, git status and diffs, running Python, and
+              system information. The panel is built into the app — it does not connect to
+              external MCP servers — and each tool can be switched on or off there.
+            </p>
+          </Reveal>
+        </section>
+
         <section className="app-section" aria-labelledby="xchat-models">
           <Reveal>
             <h2 id="xchat-models">Every model, one Hub</h2>
             <p>
               The Hub lists 121 providers and 423 models to choose from — OpenAI, Anthropic,
               Google, xAI, Mistral, DeepSeek and more. Add a key, refresh, and chat.
+            </p>
+            <p>
+              Cloud providers use your own API key and nothing else. Local models need no key at
+              all: XChat probes your machine for Ollama, and its built-in engine can run a model
+              without any provider behind it.
             </p>
             <div style={{ marginTop: 36 }}>
               <div className="product-preview">

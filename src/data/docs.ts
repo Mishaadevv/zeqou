@@ -108,7 +108,7 @@ export const docs: DocPage[] = [
         paragraphs: ['What the README guarantees:'],
         list: [
           'Agent and model workspace on desktop.',
-          'Tools, memory and MCP support.',
+          'Tools, memory and MCP: the app is an MCP client — you add the servers you want over HTTP or as a local command over stdio, and the tools they expose become tools the model can call. No MCP servers are bundled.',
           'Agent plan: for multi-step work the agent writes its steps with the todo tool and keeps them updated. The plan is a quiet card at the end of the chat it belongs to, with a progress line and a done count, and it is read-only — the user has nothing to tick, add or reorder, because the assistant wrote this plan, not them.',
           'A plan never outlives its run: if the run is stopped, fails or hits the step limit, the steps it never finished are dropped with it. What it completed stays in the chat as a record.',
           'Agent questions: the ask_user tool lets the agent stop and ask instead of guessing. The question appears as a card in the chat and is answered by clicking an option or typing an answer, and the run continues with it.',
