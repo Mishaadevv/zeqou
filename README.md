@@ -79,6 +79,14 @@ percent, and the date it was read.
   still succeeds. `npm run goal:sync -- --strict` turns that into a failure.
 - The date shown next to the bar is what makes a stale number honest, so it is always rendered.
 
+## Analytics
+
+Umami (cloud.umami.is) is loaded from `index.html`: cookie-free, no personal data, and invisible
+on the page. The tag is scoped with `data-domains` to the production host, so local development
+and previews are never counted, and `data-do-not-track` keeps visitors who ask not to be tracked
+out of the numbers entirely. Hash routes (`#/apps/harness`) are tracked as separate pages by the
+tracker itself — nothing in `src/` calls it.
+
 ## Brand assets
 
 - Master mark: `public/assets/branding/zeqou-x.png`
