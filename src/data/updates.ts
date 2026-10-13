@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'x3d-v093-reflections',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.9.3',
+    title: 'Real reflections: sky cubemaps, reflection probes with box projection, and screen-space reflections',
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v092-post',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.9.2',
