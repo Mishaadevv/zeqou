@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'x3d-v0100-hdri-exr',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.10.0',
+    title: 'Milestone 10 complete: OpenEXR import, BC6H/BC7 compression, and HDRI skies whose sun casts the shadows',
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v094-decals-ztsr',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.9.4',
