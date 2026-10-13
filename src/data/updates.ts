@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0104",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.4",
+    title: "Characters on physics: stairs, slopes, moving platforms and pushing objects by their mass",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0103",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.3",
