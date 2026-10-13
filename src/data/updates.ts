@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0103",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.3",
+    title: "Physics part 2: triggers, collision events, shape casts and a physics API for scripts and C++",
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v0102-physics',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.10.2',
