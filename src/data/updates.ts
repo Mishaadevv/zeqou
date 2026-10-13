@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'x3d-v091-cpp',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.9.1',
+    title: 'C++ gameplay with hot reload while the game is playing, plus Input Actions for keyboard, mouse and gamepad',
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v090-audio',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.9',
