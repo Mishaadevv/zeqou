@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'x3d-v0101-progress',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.10.1',
+    title: 'A Unity-style progress window shows what the editor is importing, cooking and compiling',
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v0100-hdri-exr',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.10.0',
