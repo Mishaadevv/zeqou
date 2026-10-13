@@ -19,7 +19,7 @@ export const updates: UpdateEntry[] = [
     id: 'x3d-v0102-physics',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.10.2',
-    title: 'ZPhys, an own physics engine: rigid bodies, colliders, stable stacks, 500 bodies in under 3 ms',
+    title: 'ZPhys, a physics engine built from scratch: rigid bodies, colliders, stable stacks, 500 bodies in under 3 ms',
     kind: 'Release',
   },
   {
