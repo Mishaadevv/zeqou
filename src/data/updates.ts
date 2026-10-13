@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'x3d-v092-post',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.9.2',
+    title: 'Post Process Volumes that blend like in Unreal, physical depth of field with bokeh, and camera motion blur',
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v091-cpp',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.9.1',
