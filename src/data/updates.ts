@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'x3d-v094-decals-ztsr',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.9.4',
+    title: 'Decals, ZTSR temporal upscaling and dynamic resolution for smooth frame rates on modest GPUs',
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v093-reflections',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.9.3',
