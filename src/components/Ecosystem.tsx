@@ -20,6 +20,9 @@ export function Ecosystem() {
         <Link to="/apps/xtraining" className="eco-child">
           XTRAINING
         </Link>
+        <Link to="/apps/x3d" className="eco-child">
+          X3D
+        </Link>
         <span className="eco-child dim">FUTURE</span>
       </div>
     </div>

@@ -56,25 +56,27 @@ export const docs: DocPage[] = [
       {
         heading: 'All Zeqou repositories (Mishaadevv)',
         paragraphs: [
-          'Zeqou lives in 4 repos. Two more repos on the same GitHub (SlimeLauncher, MineDecompiler) are separate Minecraft tools — not part of Zeqou and not covered here.',
+          'Zeqou lives in 5 repos. Two more repos on the same GitHub (SlimeLauncher, MineDecompiler) are separate Minecraft tools — not part of Zeqou and not covered here.',
         ],
         list: [
           'zeqou — official ecosystem website (TypeScript, React 19 + Vite). This site + its documentation.',
           'harness — Zeqou Harness, premium desktop workspace for AI models and agents (JavaScript, Electron).',
           'xchat — ZeqouXChat, desktop AI chat, Tauri 2 + React 19 (TypeScript).',
           'xtraining — ZeqouXTraining, desktop app for training and fine-tuning AI models (TypeScript + Python).',
+          'x3d — ZeqouX3D, a 3D game engine and editor written from scratch (C++20, Direct3D 12). In development.',
         ],
       },
       {
         heading: 'Local projects in “Zeqou Ecosystem” folder',
         paragraphs: [
-          'On this machine the folder “Zeqou Ecosystem” contains 4 checkouts that mirror the Zeqou repos:',
+          'On this machine the folder “Zeqou Ecosystem” contains 5 checkouts that mirror the Zeqou repos:',
         ],
         list: [
           `Zeqou/ — website (npm run dev, npm run build). Version ${versions.zeqou}.`,
           `Zeqou Harness/ — Electron app, v${versions.harness}, appId ai.zeqou.harness.`,
           `ZeqouXchat/ — Tauri 2 app, v${versions.xchat}, plus AIens/ Python experiments and dataset_ru.json.`,
           `ZeqouXTraining/ — Electron shell + pure-Python engine, v${versions.xtraining}, appId ai.zeqou.xtraining.`,
+          `ZeqouX3D/ — C++20 / Direct3D 12 engine and editor, v${versions.x3d}.`,
         ],
       },
       {
@@ -315,6 +317,73 @@ export const docs: DocPage[] = [
           'Context isolation on, node integration off, sandbox on. The renderer only talks through the preload bridge.',
           'The only request that leaves the machine on its own is the update check at launch, which can be turned off.',
         ],
+      },
+    ],
+  },
+  {
+    slug: 'x3d',
+    label: 'X3D',
+    title: 'ZeqouX3D docs',
+    description:
+      'A 3D game engine and editor written from scratch in C++20 on Direct3D 12, with its own scripting language, ZeqouScript.',
+    githubUrl: 'https://github.com/Mishaadevv/x3d',
+    websiteRoute: '/apps/x3d',
+    version: versions.x3d,
+    stack: ['C++20', 'Direct3D 12', 'HLSL (DXC)', 'CMake + Ninja', 'Windows SDK', 'No third-party libraries'],
+    blocks: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'ZeqouX3D (repo: x3d) is a 3D game engine and its editor, written from scratch: the renderer, the Direct3D 12 backend, the immediate-mode UI with its own TTF/SVG rasterizers, image codecs, the glTF importer, the entity system and the scripting language are all part of the engine. The only dependencies are Windows and its SDK.',
+          'It is in active development and has no installer yet — build it from source. The version follows the closed milestones of its roadmap (0.<milestone>.<release>); the changelog lives in docs/CHANGELOG.md. License: PolyForm Strict 1.0.0.',
+        ],
+      },
+      {
+        heading: 'Build',
+        paragraphs: ['Windows 10/11 with Visual Studio 2022 Build Tools (C++ workload, CMake, Ninja) and Windows SDK 10.0.26100+:'],
+        code: {
+          lang: 'powershell',
+          code: 'powershell -ExecutionPolicy Bypass -File Tools/build.ps1 -Config Development\npowershell -ExecutionPolicy Bypass -File Tools/build.ps1 -Config Debug -Test\npowershell -ExecutionPolicy Bypass -File Tools/fetch_samples.ps1   # optional sample models\nBinaries/Win64/Development/ZXEditor.exe',
+        },
+      },
+      {
+        heading: 'Engine',
+        paragraphs: ['Modules under Engine/Source/Runtime:'],
+        list: [
+          'Core — memory, containers, strings, math, jobs, logging, CVars, JSON, reflection, virtual file system, profiler.',
+          'RHI + RHI_D3D12 — bindless Direct3D 12 backend with pipelines, timestamps and the debug layer checked in tests.',
+          'Render — render graph, clustered forward+ PBR, cascaded and local shadows, GTAO, physical sky and height fog, TAA, bloom, auto exposure, ACES, material graphs, realistic water.',
+          'Asset / Scene — glTF/GLB/OBJ import, mesh optimization and LODs, BC texture compression, an archetype ECS with hierarchy.',
+          'Script — ZeqouScript: compiler to bytecode and a stack virtual machine.',
+          'Engine / UI — scenes and undo, prefabs, gameplay (Camera, Character Controller), scripting bindings, ray queries; the editor UI toolkit.',
+        ],
+      },
+      {
+        heading: 'Editor',
+        paragraphs: [
+          'A docking UE5/Unity-style shell: viewport with gizmos, Outliner, Details, Content Browser, Output Log with a console, command palette (Ctrl+P), material node editor, Script Editor, Features window and tools (Brush, Measure, Drop to Ground). Everything is undoable; Play-in-Editor restores the scene on Stop.',
+          'The Project Browser creates projects from templates — Blank, Sample Scene, First Person, Third Person, Water — with optional Starter Content, generated documentation (README, Docs/, AGENTS.md for AI assistants) and a Git repository.',
+        ],
+      },
+      {
+        heading: 'ZeqouScript',
+        paragraphs: [
+          'Gameplay code is written in ZeqouScript (.zs): one script per file, prop fields edited per entity in the Details panel, start() and update(dt) called while playing, hot reload that keeps the running state. Engine objects: entity, character, input, time, find(name).',
+        ],
+        code: {
+          lang: 'zs',
+          code: 'script Spinner {\n    @range(-360, 360) prop speed = 90.0\n\n    fn update(dt) {\n        entity.rotate(vec3(0, speed * dt, 0))\n        if input.pressed("Space") { log("jump!") }\n    }\n}',
+        },
+      },
+      {
+        heading: 'Verify',
+        paragraphs: [
+          'A change is done when Debug and Development build without warnings, the test suite passes, there are no leaks and the D3D12 debug layer reports no errors. The editor also has self-tests that drive the real application:',
+        ],
+        code: {
+          lang: 'bash',
+          code: 'Binaries/Win64/Debug/ZXTests.exe\nBinaries/Win64/Debug/ZXEditor.exe -autotest=90 -scripttest   # also -pietest -undotest -materialtest -tooltest',
+        },
       },
     ],
   },

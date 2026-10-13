@@ -8,13 +8,20 @@
 export interface UpdateEntry {
   id: string;
   /** Product slug from products.ts, or 'ecosystem' for cross-cutting news. */
-  product: 'harness' | 'xchat' | 'xtraining' | 'ecosystem';
+  product: 'harness' | 'xchat' | 'xtraining' | 'x3d' | 'ecosystem';
   productLabel: string;
   title: string;
   kind: string;
 }
 
 export const updates: UpdateEntry[] = [
+  {
+    id: 'x3d-v086-source',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.8.6',
+    title: 'A from-scratch 3D engine joins the ecosystem: editor, ZeqouScript, realistic water — source on GitHub',
+    kind: 'Announcement',
+  },
   {
     id: 'harness-v140-plan',
     product: 'harness',

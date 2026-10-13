@@ -47,6 +47,8 @@ const products = [
     crossCheck: ['package.json'],
   },
   { key: 'xtraining', dir: ['ZeqouXTraining'], file: 'package.json', crossCheck: [] },
+  // C++ engine: the version is `project(ZeqouX3D VERSION x.y.z)` in its CMakeLists.txt.
+  { key: 'x3d', dir: ['ZeqouX3D'], file: 'CMakeLists.txt', crossCheck: [] },
   // This repository itself, which lives in the folder the others sit beside.
   { key: 'zeqou', dir: [], file: 'package.json', crossCheck: [] },
 ];
@@ -58,6 +60,10 @@ function repoDir(parts) {
 }
 
 async function readVersion(file) {
+  if (file.endsWith('CMakeLists.txt')) {
+    const match = (await readFile(file, 'utf8')).match(/project\(\s*\w+\s+VERSION\s+([0-9][0-9.]*)/);
+    return match ? match[1] : '';
+  }
   const json = JSON.parse(await readFile(file, 'utf8'));
   const version = typeof json.version === 'string' ? json.version.trim() : '';
   return version;

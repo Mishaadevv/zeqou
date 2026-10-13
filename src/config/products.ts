@@ -200,6 +200,67 @@ export const products: Product[] = [
       'PyTorch (optional)',
     ],
   },
+  {
+    name: 'ZeqouX3D',
+    brand: ['ZEQOU', 'X3D'],
+    slug: 'x3d',
+    tagline: 'Build worlds. From scratch.',
+    description: 'A 3D game engine and editor written from scratch in C++20 on Direct3D 12.',
+    longDescription:
+      'A 3D game engine and editor written from scratch — no third-party libraries, only Windows and its SDK. A Direct3D 12 renderer with physical sky, shadows and realistic water, a UE5/Unity-style editor, its own scripting language with hot reload, character controllers, prefabs, material graphs and project templates. In active development; the source is on GitHub.',
+    status: 'coming-soon',
+    version: versions.x3d,
+    platforms: ['Windows'],
+    icon: asset('assets/apps/x3d/icon.png'),
+    screenshots: [
+      {
+        src: asset('assets/apps/x3d/water.jpg'),
+        alt: 'ZeqouX3D editor showing the Water template: an island with a pier, waves and a low sun over the sea',
+        caption: 'The Water template, in the editor',
+      },
+      {
+        src: asset('assets/apps/x3d/script-editor.jpg'),
+        alt: 'The ZeqouX3D Script Editor with syntax-colored ZeqouScript code next to the Details panel with script properties',
+        caption: 'ZeqouScript in the built-in Script Editor',
+      },
+      {
+        src: asset('assets/apps/x3d/project-browser.jpg'),
+        alt: 'The ZeqouX3D Project Browser: template grid with Blank, Sample Scene, First Person, Third Person and Water, and project settings',
+        caption: 'New Project: templates, language, Starter Content, documentation',
+      },
+      {
+        src: asset('assets/apps/x3d/third-person.jpg'),
+        alt: 'The Third Person template playing in the editor: a character on a playground with stairs and platforms',
+        caption: 'The Third Person template, playing',
+      },
+      {
+        src: asset('assets/apps/x3d/brush-tool.jpg'),
+        alt: 'The Brush tool settings panel in the ZeqouX3D editor over the Sponza scene',
+        caption: 'The Brush tool',
+      },
+    ],
+    downloadUrl: 'https://github.com/Mishaadevv/x3d',
+    githubUrl: 'https://github.com/Mishaadevv/x3d',
+    docsUrl: 'https://github.com/Mishaadevv/x3d#readme',
+    capabilities: [
+      'Direct3D 12',
+      'Render graph',
+      'Clustered PBR',
+      'Shadows + GTAO',
+      'Physical sky',
+      'Realistic water',
+      'UE5-style editor',
+      'ZeqouScript',
+      'Hot reload',
+      'Play-in-Editor',
+      'Character controller',
+      'Prefabs',
+      'Material graphs',
+      'Brush tool',
+      'Project templates',
+    ],
+    providers: ['Windows 10 / 11', 'Intel / AMD / NVIDIA (D3D12)', 'glTF / GLB / OBJ', 'PNG / JPEG / DDS'],
+  },
 ];
 
 export function getProduct(slug: string): Product | undefined {

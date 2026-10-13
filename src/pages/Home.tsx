@@ -32,6 +32,7 @@ export function Home() {
   const harness = getProduct('harness');
   const xchat = getProduct('xchat');
   const xtraining = getProduct('xtraining');
+  const x3d = getProduct('x3d');
   const latest = updates.slice(0, 3);
 
   return (
@@ -110,6 +111,17 @@ export function Home() {
                 product={xtraining}
                 preview={<TrainingMock />}
                 caption="ZeqouXTraining — the training workspace, previewed"
+              />
+            </Reveal>
+          )}
+          {x3d && x3d.screenshots[0] && (
+            <Reveal>
+              <ProductBlock
+                product={x3d}
+                mirror
+                natural
+                preview={<Shot src={x3d.screenshots[0].src} alt={x3d.screenshots[0].alt} />}
+                caption="ZeqouX3D — the real editor, in development"
               />
             </Reveal>
           )}

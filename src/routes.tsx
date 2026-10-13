@@ -20,6 +20,7 @@ import { Privacy } from './pages/Privacy';
 import { Support } from './pages/Support';
 import { Updates } from './pages/Updates';
 import { XChat } from './pages/XChat';
+import { X3D } from './pages/X3D';
 import { XTraining } from './pages/XTraining';
 
 /**
@@ -99,7 +100,7 @@ export const routes: RouteEntry[] = [
   page('/apps', <Apps />, {
     title: 'Apps — Zeqou',
     description:
-      'Every application in the Zeqou ecosystem: Harness, XChat, XTraining and upcoming tools.',
+      'Every application in the Zeqou ecosystem: Harness, XChat, XTraining, the X3D engine and upcoming tools.',
   }),
   page('/apps/harness', <Harness />, {
     title: 'Zeqou Harness — Zeqou',
@@ -117,10 +118,15 @@ export const routes: RouteEntry[] = [
       'A local-first desktop studio for training, fine-tuning, evaluating and serving AI models on your own hardware.',
     jsonLd: softwareApplication('xtraining', 'DeveloperApplication'),
   }),
+  page('/apps/x3d', <X3D />, {
+    title: 'ZeqouX3D — Zeqou',
+    description: 'A 3D game engine and editor written from scratch in C++20 on Direct3D 12, with its own scripting language.',
+    jsonLd: softwareApplication('x3d', 'DeveloperApplication'),
+  }),
   page('/docs', <Docs />, {
     title: 'Docs — Zeqou',
     description:
-      'Documentation for the Zeqou ecosystem: Harness, XChat, XTraining and the website itself.',
+      'Documentation for the Zeqou ecosystem: Harness, XChat, XTraining, X3D and the website itself.',
   }),
   // One entry per article: a page that exists is a page that is prerendered,
   // so /docs/<anything else> falls through to the not-found route.

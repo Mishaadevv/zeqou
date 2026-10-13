@@ -15,7 +15,7 @@ export const faq: FaqEntry[] = [
   {
     question: 'What is Zeqou?',
     answer:
-      'An independent software ecosystem: desktop applications written and maintained by one developer. Zeqou Harness is an AI workspace for agents, models, tools and MCP; ZeqouXChat is a desktop AI chat application; ZeqouXTraining is a local studio for training and fine-tuning models. Each app stands on its own, each lives in its own repository, and this site is the hub.',
+      'An independent software ecosystem: desktop applications written and maintained by one developer. Zeqou Harness is an AI workspace for agents, models, tools and MCP; ZeqouXChat is a desktop AI chat application; ZeqouXTraining is a local studio for training and fine-tuning models; ZeqouX3D is a 3D game engine and editor written from scratch (in development). Each app stands on its own, each lives in its own repository, and this site is the hub.',
   },
   {
     question: 'Is Zeqou free?',

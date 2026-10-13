@@ -59,7 +59,7 @@ export function ProductBlock({ product, mirror = false, preview, caption, natura
             target="_blank"
             rel="noreferrer"
           >
-            Download <span className="arrow" aria-hidden="true">→</span>
+            {product.status === 'available' ? 'Download' : 'Source'} <span className="arrow" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
