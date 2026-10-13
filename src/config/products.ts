@@ -207,7 +207,7 @@ export const products: Product[] = [
     tagline: 'Build worlds. From scratch.',
     description: 'A 3D game engine and editor written from scratch in C++20 on Direct3D 12.',
     longDescription:
-      'A 3D game engine and editor written from scratch — no third-party libraries, only Windows and its SDK. A Direct3D 12 renderer with physical sky, shadows and realistic water, a UE5/Unity-style editor, its own scripting language with hot reload, character controllers, prefabs, material graphs and project templates. In active development; the source is on GitHub.',
+      'A 3D game engine and editor written from scratch — no third-party libraries, only Windows and its SDK. A Direct3D 12 renderer with physical sky, shadows and realistic water, 3D audio with its own mixer, a UE5/Unity-style editor, its own scripting language with hot reload, character controllers, prefabs, material graphs and project templates. In active development; the source is on GitHub.',
     status: 'coming-soon',
     version: versions.x3d,
     platforms: ['Windows'],
@@ -249,6 +249,8 @@ export const products: Product[] = [
       'Shadows + GTAO',
       'Physical sky',
       'Realistic water',
+      '3D audio',
+      'Ogg Vorbis decoder',
       'UE5-style editor',
       'ZeqouScript',
       'Hot reload',

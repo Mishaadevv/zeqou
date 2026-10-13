@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: 'x3d-v090-audio',
+    product: 'x3d',
+    productLabel: 'ZeqouX3D 0.9',
+    title: 'Its own sound engine: 3D audio, a mixer with buses, and an Ogg Vorbis decoder written from scratch',
+    kind: 'Release',
+  },
+  {
     id: 'x3d-v086-source',
     product: 'x3d',
     productLabel: 'ZeqouX3D 0.8.6',
