@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v01014",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.14",
+    title: "Per-object motion blur and velocity-aware TAA",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v01013",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.13",
