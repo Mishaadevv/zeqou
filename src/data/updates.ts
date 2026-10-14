@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v01012",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.12",
+    title: "Parallax occlusion, subsurface scattering, color grading LUTs",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v01011",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.11",
