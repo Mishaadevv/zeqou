@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0110",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.11.0",
+    title: "Physics milestone complete: Physics Playground",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v01017",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.17",
