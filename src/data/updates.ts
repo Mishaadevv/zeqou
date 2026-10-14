@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v01015",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.15",
+    title: "Directional Light and Sky Light, brighter default look",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v01014",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.14",
