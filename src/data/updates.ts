@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v01011",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.11",
+    title: "GPU fluid simulation: real smoke and fire",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v01010",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.10",
