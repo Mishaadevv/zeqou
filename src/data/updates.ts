@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0105",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.5",
+    title: "Physics joints: hinge, slider, ball, rope, spring",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0104",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.4",
