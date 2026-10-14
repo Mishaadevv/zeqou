@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0107",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.7",
+    title: "Spreading fire: Flammable objects, charring and embers",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0106",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.6",
