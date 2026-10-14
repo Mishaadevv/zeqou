@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v01016",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.16",
+    title: "Convex hulls: dynamic bodies of any shape",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v01015",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.15",
