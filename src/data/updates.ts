@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0108",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.8",
+    title: "Recorded sounds: CC0 library, impact sounds, footsteps",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0107",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.7",
