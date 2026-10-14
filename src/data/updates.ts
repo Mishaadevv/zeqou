@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v01013",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.13",
+    title: "Particle flipbooks baked from a fluid simulation",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v01012",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.12",
