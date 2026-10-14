@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v01010",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.10.10",
+    title: "Volumetric clouds with moving shadows",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0109",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.10.9",
