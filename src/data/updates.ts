@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0121",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.12.1",
+    title: "Skeletal animation: glTF skins and clips, GPU skinning, Animator",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0120",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.12.0",
