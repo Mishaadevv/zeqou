@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0124",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.12.4",
+    title: "Animation Viewer and AnimGraph Editor",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0123",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.12.3",
