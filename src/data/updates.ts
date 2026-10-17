@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0115",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.11.5",
+    title: "GPU particles: hundreds of thousands of sparks with depth-buffer collisions",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0114",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.11.4",
