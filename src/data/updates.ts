@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0123",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.12.3",
+    title: "IK: feet on terrain, look-at, footsteps on foot contact",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0122",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.12.2",
