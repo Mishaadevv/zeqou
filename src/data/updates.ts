@@ -16,6 +16,13 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    id: "x3d-v0120",
+    product: 'x3d',
+    productLabel: "ZeqouX3D 0.12.0",
+    title: "Milestone M12: GPU-driven rendering and deferred path",
+    kind: 'Release',
+  },
+  {
     id: "x3d-v0115",
     product: 'x3d',
     productLabel: "ZeqouX3D 0.11.5",
