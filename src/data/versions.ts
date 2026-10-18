@@ -13,6 +13,6 @@ export const versions = {
   harness:   '1.4.0',
   xchat:     '0.3.1',
   xtraining: '2.0.0',
-  x3d:       '0.14.0',
+  x3d:       '0.15.0',
   zeqou:     '0.0.0',
 } as const;
