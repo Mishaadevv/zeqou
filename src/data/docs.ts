@@ -335,7 +335,7 @@ export const docs: DocPage[] = [
         heading: 'What it is',
         paragraphs: [
           'ZeqouX3D (repo: x3d) is a 3D game engine and its editor, written from scratch: the renderer, the Direct3D 12 backend, the immediate-mode UI with its own TTF/SVG rasterizers, image codecs, the glTF importer, the entity system and the scripting language are all part of the engine. The only dependencies are Windows and its SDK.',
-          'It is a public beta, not a complete 3D engine yet: download the installer (per user, no administrator rights) or the portable zip from the GitHub releases, or build it from source. Expect missing features and bugs, and keep backups of your projects. The version follows the closed milestones of its roadmap (0.<milestone>.<release>); the changelog lives in docs/CHANGELOG.md. License: PolyForm Strict 1.0.0.',
+          'It is a public beta, not a complete 3D engine yet: download the installer (per user, no administrator rights) or the portable zip from the GitHub releases, or build it from source. Expect missing features and bugs, and keep backups of your projects. The version follows the closed milestones of its roadmap (0.<milestone>.<release>); the changelog lives in docs/CHANGELOG.md. License: ZeqouX3D License (PolyForm Strict 1.0.0 with a Game Exception) — games made with the engine can be given away or sold royalty-free; the engine and editor themselves may not be redistributed or modified.',
         ],
       },
       {
