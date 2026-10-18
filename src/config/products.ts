@@ -207,8 +207,8 @@ export const products: Product[] = [
     tagline: 'Build worlds. From scratch.',
     description: 'A 3D game engine and editor written from scratch in C++20 on Direct3D 12.',
     longDescription:
-      'A 3D game engine and editor written from scratch — no third-party libraries, only Windows and its SDK. A Direct3D 12 renderer with physical sky, shadows and realistic water, 3D audio with its own mixer, a UE5/Unity-style editor, its own scripting language with hot reload, character controllers, prefabs, material graphs and project templates. In active development; the source is on GitHub.',
-    status: 'coming-soon',
+      'A 3D game engine and editor written from scratch — no third-party libraries, only Windows and its SDK. A Direct3D 12 renderer with physical sky, shadows and realistic water, 3D audio with its own mixer, a UE5/Unity-style editor, its own scripting language with hot reload, character controllers, prefabs, material graphs and project templates. Now a public beta with an installer — not a complete 3D engine yet.',
+    status: 'available',
     version: versions.x3d,
     platforms: ['Windows'],
     icon: asset('assets/apps/x3d/icon.png'),
@@ -239,7 +239,7 @@ export const products: Product[] = [
         caption: 'The Brush tool',
       },
     ],
-    downloadUrl: 'https://github.com/Mishaadevv/x3d',
+    downloadUrl: 'https://github.com/Mishaadevv/x3d/releases/latest',
     githubUrl: 'https://github.com/Mishaadevv/x3d',
     docsUrl: 'https://github.com/Mishaadevv/x3d#readme',
     capabilities: [

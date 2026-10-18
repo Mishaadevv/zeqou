@@ -38,7 +38,7 @@ export function X3D() {
             <p className="lead">{product.longDescription}</p>
             <div className="app-hero-meta">
               <span>
-                Status <strong>In development</strong>
+                Status <strong>Beta</strong>
               </span>
               <span>
                 Version <strong>{product.version}</strong>
@@ -48,7 +48,10 @@ export function X3D() {
               </span>
             </div>
             <div className="app-hero-cta">
-              <a href={product.githubUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
+              <a href={product.downloadUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
+                Download Beta
+              </a>
+              <a href={product.githubUrl} className="btn btn-ghost" target="_blank" rel="noreferrer">
                 Source on GitHub
               </a>
               <Link to="/docs/x3d" className="btn btn-ghost">
@@ -138,14 +141,18 @@ export function X3D() {
           <Reveal>
             <div className="download-row">
               <div>
-                <h2 id="x3d-get">Build it yourself</h2>
+                <h2 id="x3d-get">Download the beta</h2>
                 <p className="lead">
-                  There is no installer yet: the engine is in active development. The source builds on
-                  Windows with the Visual Studio 2022 Build Tools.
+                  An installer for Windows 10 / 11 (no administrator rights needed) or a portable zip. This is a
+                  beta, not a complete 3D engine yet: features are missing, expect bugs, and keep backups of your
+                  projects. Needs a DirectX 12 GPU (Intel UHD 620 or better) and 8 GB of RAM.
                 </p>
               </div>
               <div className="download-btns">
-                <a href={product.githubUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
+                <a href={product.downloadUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
+                  Download
+                </a>
+                <a href={product.githubUrl} className="btn btn-ghost" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
                 <a
